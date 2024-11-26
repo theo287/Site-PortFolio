@@ -8,205 +8,200 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
   <style>
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .floating {
-      animation: float 6s ease-in-out infinite;
+    .animated-bg {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
     }
 
-    .blur-bg {
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .text-gradient {
-      background: linear-gradient(to right, #007AFF, #5856D6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .card-hover {
+      transition: all 0.3s ease;
+      transform-style: preserve-3d;
     }
 
-    .scale-up {
-      transition: transform 0.3s ease;
+    .card-hover:hover {
+      transform: translateY(-10px) rotateX(5deg);
     }
 
-    .scale-up:hover {
-      transform: scale(1.02);
+    .glow {
+      box-shadow: 0 0 15px rgba(66, 153, 225, 0.5);
+    }
+
+    .text-stroke {
+      -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .rotating-border {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rotating-border::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+              from 0deg,
+              transparent 0deg,
+              #23a6d5 72deg,
+              transparent 90deg,
+              transparent 180deg,
+              #23d5ab 216deg,
+              transparent 360deg
+      );
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
-<body class="bg-white">
+<body class="animated-bg min-h-screen text-white">
+
 <!-- Navigation -->
-<nav class="fixed w-full z-50 blur-bg bg-white/80 border-b border-gray-100">
+<nav class="fixed w-full z-50 glass">
   <div class="max-w-7xl mx-auto">
-    <div class="flex justify-between items-center h-16 px-6">
-      <a href="#" class="text-lg font-medium text-gray-900">Portfolio</a>
+    <div class="flex justify-between items-center h-20 px-6">
+      <a href="#" class="text-2xl font-bold tracking-tight">DEV<span class="text-blue-400">.PORTFOLIO</span></a>
       <div class="hidden md:flex space-x-8">
-        <a href="#projets" class="text-sm text-gray-600 hover:text-gray-900 transition">Projets</a>
-        <a href="#competences" class="text-sm text-gray-600 hover:text-gray-900 transition">Compétences</a>
-        <a href="#contact" class="text-sm text-gray-600 hover:text-gray-900 transition">Contact</a>
+        <a href="#projets" class="text-sm hover:text-blue-400 transition-colors duration-300">PROJETS</a>
+        <a href="#competences" class="text-sm hover:text-blue-400 transition-colors duration-300">COMPÉTENCES</a>
+        <a href="#contact" class="text-sm hover:text-blue-400 transition-colors duration-300">CONTACT</a>
       </div>
     </div>
   </div>
 </nav>
 
 <!-- Hero Section -->
-<section class="min-h-screen relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0,transparent_100%)]"></div>
-  <div class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6">
-    <h1 class="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-gray-900">
-      Développeur
-      <span class="text-gradient">Java</span>
+<section class="min-h-screen relative overflow-hidden flex items-center justify-center px-6">
+  <div class="text-center z-10">
+    <h1 class="text-8xl md:text-9xl font-black mb-6 tracking-tighter text-stroke">
+      JAVA
+      <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">
+        DEVELOPER
+      </span>
     </h1>
-    <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mb-12">
-      Créateur d'applications sécurisées et innovantes
+    <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto mb-12">
+      Architecte de solutions numériques innovantes
     </p>
-    <div class="flex flex-col md:flex-row gap-4">
-      <a href="#projets" class="px-8 py-4 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition">
-        Découvrir mes projets
+    <div class="flex flex-col md:flex-row gap-6 justify-center">
+      <a href="#projets" class="rotating-border rounded-full p-[2px] group">
+        <div class="px-8 py-4 rounded-full bg-black/50 group-hover:bg-black/70 transition-colors duration-300">
+          Découvrir mes projets
+        </div>
       </a>
-      <a href="#contact" class="px-8 py-4 bg-gray-100 text-gray-900 rounded-full text-sm font-medium hover:bg-gray-200 transition">
+      <a href="#contact" class="px-8 py-4 rounded-full glass hover:glow transition-all duration-300">
         Me contacter
       </a>
     </div>
   </div>
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-400">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-    </svg>
-  </div>
 </section>
 
 <!-- Projets -->
-<section id="projets" class="py-32 bg-white">
-  <!-- Projet 1 : Référendum -->
-  <div class="max-w-7xl mx-auto px-6 mb-40">
-    <div class="text-center mb-20">
-      <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900">Référendum Sécurisé</h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Une application Java pour des votes électroniques sécurisés
-      </p>
-    </div>
+<section id="projets" class="py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-6xl md:text-7xl font-bold text-center mb-20 text-stroke">PROJETS</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-      <div class="space-y-8">
-        <div class="bg-white p-8 rounded-3xl scale-up shadow-lg hover:shadow-xl border border-gray-100">
-          <span class="text-2xl mb-4 block">🔒</span>
-          <h3 class="text-xl font-semibold mb-2 text-gray-900">Sécurité maximale</h3>
-          <p class="text-gray-600">
-            Chiffrement de bout en bout et authentification forte pour
-            garantir l'intégrité des votes.
-          </p>
+    <!-- Projet 1 -->
+    <div class="glass rounded-3xl p-10 mb-20 card-hover">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-3xl font-bold mb-6">Référendum Sécurisé</h3>
+          <p class="text-blue-100 mb-8">Une application Java pour des votes électroniques sécurisés</p>
+          <div class="space-y-6">
+            <div class="glass p-6 rounded-2xl">
+              <h4 class="text-xl font-semibold mb-2">🔒 Sécurité maximale</h4>
+              <p class="text-blue-100">Chiffrement de bout en bout et authentification forte</p>
+            </div>
+            <div class="glass p-6 rounded-2xl">
+              <h4 class="text-xl font-semibold mb-2">📊 Temps réel</h4>
+              <p class="text-blue-100">Suivi des résultats avec statistiques détaillées</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-white p-8 rounded-3xl scale-up shadow-lg hover:shadow-xl border border-gray-100">
-          <span class="text-2xl mb-4 block">📊</span>
-          <h3 class="text-xl font-semibold mb-2 text-gray-900">Temps réel</h3>
-          <p class="text-gray-600">
-            Suivi des résultats en direct avec des statistiques détaillées.
-          </p>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl opacity-10 blur-2xl"></div>
-        <img src="/api/placeholder/600/400" alt="Référendum App" class="rounded-3xl shadow-2xl floating relative"/>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <a href="Projet_Referendum.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 transition font-medium">
-        En savoir plus
-        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- Projet 2 : Train -->
-  <div class="max-w-7xl mx-auto px-6 mb-20">
-    <div class="text-center mb-20">
-      <h2 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900">Train Game</h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Un jeu de simulation ferroviaire complet en Java
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-      <div class="order-2 md:order-1 relative">
-        <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-3xl opacity-10 blur-2xl"></div>
-        <img src="/api/placeholder/600/400" alt="Train Game" class="rounded-3xl shadow-2xl floating relative"/>
-      </div>
-      <div class="order-1 md:order-2 space-y-8">
-        <div class="bg-white p-8 rounded-3xl scale-up shadow-lg hover:shadow-xl border border-gray-100">
-          <span class="text-2xl mb-4 block">🎮</span>
-          <h3 class="text-xl font-semibold mb-2 text-gray-900">Gameplay immersif</h3>
-          <p class="text-gray-600">
-            Système de cartes dynamique et gestion complète des itinéraires.
-          </p>
-        </div>
-        <div class="bg-white p-8 rounded-3xl scale-up shadow-lg hover:shadow-xl border border-gray-100">
-          <span class="text-2xl mb-4 block">🎨</span>
-          <h3 class="text-xl font-semibold mb-2 text-gray-900">Interface moderne</h3>
-          <p class="text-gray-600">
-            Design élégant avec JavaFX et animations fluides.
-          </p>
+        <div class="relative">
+          <img src="/api/placeholder/600/400" alt="Référendum App" class="rounded-2xl shadow-2xl" />
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-2xl"></div>
         </div>
       </div>
     </div>
 
-    <div class="text-center">
-      <a href="Projet_Train.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 transition font-medium">
-        En savoir plus
-        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </a>
+    <!-- Projet 2 -->
+    <div class="glass rounded-3xl p-10 card-hover">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 relative">
+          <img src="/api/placeholder/600/400" alt="Train Game" class="rounded-2xl shadow-2xl" />
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl"></div>
+        </div>
+        <div class="order-1 md:order-2">
+          <h3 class="text-3xl font-bold mb-6">Train Game</h3>
+          <p class="text-blue-100 mb-8">Un jeu de simulation ferroviaire en Java</p>
+          <div class="space-y-6">
+            <div class="glass p-6 rounded-2xl">
+              <h4 class="text-xl font-semibold mb-2">🎮 Gameplay immersif</h4>
+              <p class="text-blue-100">Système de cartes dynamique et gestion d'itinéraires</p>
+            </div>
+            <div class="glass p-6 rounded-2xl">
+              <h4 class="text-xl font-semibold mb-2">🎨 Interface moderne</h4>
+              <p class="text-blue-100">Design élégant avec JavaFX et animations fluides</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Compétences -->
-<section id="competences" class="py-32 bg-gray-50">
+<section id="competences" class="py-32">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl md:text-6xl font-bold text-center mb-20 text-gray-900">Technologies</h2>
-
+    <h2 class="text-6xl md:text-7xl font-bold text-center mb-20 text-stroke">TECHNOLOGIES</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Java -->
-      <div class="bg-white p-8 rounded-3xl scale-up shadow-lg hover:shadow-xl border border-gray-100">
+      <div class="glass p-8 rounded-3xl card-hover">
         <div class="text-4xl mb-6">☕️</div>
-        <h3 class="text-xl font-semibold mb-4 text-gray-900">Java</h3>
-        <ul class="space-y-3 text-gray-600">
-          <li>• Java 17</li>
-          <li>• Spring Boot</li>
-          <li>• JUnit</li>
-          <li>• JavaFX</li>
+        <h3 class="text-2xl font-bold mb-4">Java</h3>
+        <ul class="space-y-3 text-blue-100">
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>Java 17</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>Spring Boot</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>JUnit</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>JavaFX</li>
         </ul>
       </div>
-
-      <!-- Sécurité -->
-      <div class="bg-white p-8 rounded-3xl scale-up shadow-lg hover:shadow-xl border border-gray-100">
+      <div class="glass p-8 rounded-3xl card-hover">
         <div class="text-4xl mb-6">🔐</div>
-        <h3 class="text-xl font-semibold mb-4 text-gray-900">Sécurité</h3>
-        <ul class="space-y-3 text-gray-600">
-          <li>• Cryptographie</li>
-          <li>• OAuth 2.0</li>
-          <li>• JWT</li>
-          <li>• HTTPS</li>
+        <h3 class="text-2xl font-bold mb-4">Sécurité</h3>
+        <ul class="space-y-3 text-blue-100">
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>Cryptographie</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>OAuth 2.0</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>JWT</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>HTTPS</li>
         </ul>
       </div>
-
-      <!-- DevOps -->
-      <div class="bg-white p-8 rounded-3xl scale-up shadow-lg hover:shadow-xl border border-gray-100">
+      <div class="glass p-8 rounded-3xl card-hover">
         <div class="text-4xl mb-6">⚙️</div>
-        <h3 class="text-xl font-semibold mb-4 text-gray-900">DevOps</h3>
-        <ul class="space-y-3 text-gray-600">
-          <li>• Git</li>
-          <li>• Docker</li>
-          <li>• CI/CD</li>
-          <li>• Maven</li>
+        <h3 class="text-2xl font-bold mb-4">DevOps</h3>
+        <ul class="space-y-3 text-blue-100">
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>Git</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>Docker</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>CI/CD</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>Maven</li>
         </ul>
       </div>
     </div>
@@ -214,239 +209,73 @@
 </section>
 
 <!-- Footer -->
-<footer class="py-12 bg-white border-t border-gray-100">
+<footer class="py-12 glass mt-20">
   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-    <div class="text-gray-600 mb-4 md:mb-0">
+    <div class="text-blue-100 mb-4 md:mb-0">
       © 2024 - Tous droits réservés
     </div>
     <div class="flex space-x-6">
-      <a href="#" class="text-gray-600 hover:text-blue-600 transition">LinkedIn</a>
-      <a href="#" class="text-gray-600 hover:text-blue-600 transition">GitHub</a>
-      <a href="#" class="text-gray-600 hover:text-blue-600 transition">Twitter</a>
+      <a href="#" class="text-blue-100 hover:text-blue-400 transition-colors duration-300">LinkedIn</a>
+      <a href="#" class="text-blue-100 hover:text-blue-400 transition-colors duration-300">GitHub</a>
+      <a href="#" class="text-blue-100 hover:text-blue-400 transition-colors duration-300">Twitter</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Initialisation de GSAP ScrollTrigger
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animation des sections au scroll
-  document.querySelectorAll('section').forEach(section => {
-    gsap.fromTo(section.querySelector('h2'),
-      {opacity: 0, y: 100},
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
+  // Animation d'entrée du héro
+  gsap.from('h1', {
+    duration: 1.5,
+    y: 100,
+    opacity: 0,
+    ease: "power4.out",
+    delay: 0.5
   });
 
-  // Animation des cartes au hover
-  document.querySelectorAll('.scale-up').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      gsap.to(card, {
-        scale: 1.02,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-  });
-
-  // Parallax effect pour les images
-  document.querySelectorAll('.floating').forEach(image => {
-    gsap.to(image, {
-      y: 30,
-      duration: 2,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1
-    });
-  });
-
-  // Animation du texte gradient au scroll
-  gsap.to(".text-gradient", {
-    backgroundPosition: "200% center",
-    duration: 3,
-    ease: "none",
-    repeat: -1
-  });
-
-  // Animation des compétences
-  gsap.utils.toArray('.bg-gray-800\\/50').forEach((card, i) => {
+  // Animation des cartes au scroll
+  gsap.utils.toArray('.card-hover').forEach(card => {
     gsap.from(card, {
-      opacity: 0,
-      y: 50,
-      duration: 0.8,
-      delay: i * 0.2,
       scrollTrigger: {
         trigger: card,
         start: "top 80%",
         toggleActions: "play none none reverse"
-      }
-    });
-  });
-
-  // Effet de parallaxe sur le hero
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.min-h-screen');
-    const limit = hero.offsetTop + hero.offsetHeight;
-
-    if (scrolled <= limit) {
-      gsap.to('.text-gradient', {
-        y: scrolled * 0.5,
-        duration: 0.5,
-        ease: "power1.out"
-      });
-    }
-  });
-
-  // Navigation smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-          y: target,
-          offsetY: 70
-        },
-        ease: "power3.inOut"
-      });
-    });
-  });
-
-  // Animation du formulaire de contact
-  const formInputs = document.querySelectorAll('input, textarea');
-  formInputs.forEach(input => {
-    input.addEventListener('focus', () => {
-      gsap.to(input, {
-        scale: 1.02,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-
-    input.addEventListener('blur', () => {
-      gsap.to(input, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-  });
-
-  // Effet de hover sur les boutons
-  const buttons = document.querySelectorAll('button, a');
-  buttons.forEach(button => {
-    button.addEventListener('mouseenter', () => {
-      gsap.to(button, {
-        scale: 1.05,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-
-    button.addEventListener('mouseleave', () => {
-      gsap.to(button, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-  });
-
-  // Animation de la navbar au scroll
-  const navbar = document.querySelector('nav');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0) {
-      navbar.style.transform = 'translateY(0)';
-      navbar.classList.remove('shadow-lg');
-    }
-
-    if (currentScroll > lastScroll && currentScroll > 100) {
-      navbar.style.transform = 'translateY(-100%)';
-    }
-
-    if (currentScroll < lastScroll) {
-      navbar.style.transform = 'translateY(0)';
-      navbar.classList.add('shadow-lg');
-    }
-
-    lastScroll = currentScroll;
-  });
-
-  // Effet de suivi de la souris pour les éléments interactifs
-  document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-
-    gsap.to('.floating', {
-      duration: 0.5,
-      x: (mouseX - window.innerWidth / 2) * 0.02,
-      y: (mouseY - window.innerHeight / 2) * 0.02,
-      ease: "power2.out"
-    });
-  });
-
-  // Animation de chargement initial de la page
-  window.addEventListener('load', () => {
-    gsap.from('nav', {
-      y: -100,
+      },
       opacity: 0,
-      duration: 1,
-      ease: "power3.out"
-    });
-
-    gsap.from('.min-h-screen > div > *', {
       y: 100,
-      opacity: 0,
       duration: 1,
-      stagger: 0.2,
       ease: "power3.out"
     });
   });
 
-  // ScrollTrigger pour les sections de projet
-  gsap.utils.toArray('.grid').forEach(grid => {
-    const items = grid.querySelectorAll('.scale-up');
+  // Animation du texte au scroll
+  gsap.utils.toArray('h2').forEach(title => {
+    gsap.from(title, {
+      scrollTrigger: {
+        trigger: title,
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      scale: 0.9,
+      duration: 1,
+      ease: "power3.out"
+    });
+  });
 
-    items.forEach((item, i) => {
-      gsap.from(item, {
-        scrollTrigger: {
-          trigger: item,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        },
-        opacity: 0,
-        y: 100,
-        duration: 1,
-        delay: i * 0.2
-      });
+  // Effet parallaxe sur les images
+  gsap.utils.toArray('img').forEach(img => {
+    gsap.to(img, {
+      scrollTrigger: {
+        trigger: img,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1
+      },
+      y: 50
     });
   });
 </script>
 </body>
 </html>
-
