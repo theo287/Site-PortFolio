@@ -80,58 +80,87 @@
     </div>
   </div>
 </section>
-
-<!-- Projets -->
 <section id="projets" class="py-32">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-6xl md:text-7xl font-bold text-center mb-20 gradient-text">PROJETS</h2>
 
-    <!-- Projet 1 -->
+    <!-- Référendum - Image à droite -->
     <div class="bg-slate-800 rounded-lg p-10 mb-20 card-hover">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-rose-500/20 text-rose-300 rounded-full text-sm">Java</span>
+            <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">Spring Boot</span>
+            <span class="px-3 py-1 bg-fuchsia-500/20 text-fuchsia-300 rounded-full text-sm">PostgreSQL</span>
+          </div>
           <h3 class="text-3xl font-bold mb-6 text-white">Référendum Sécurisé</h3>
-          <p class="text-gray-300 mb-8">Une application Java pour des votes électroniques sécurisés</p>
+          <p class="text-gray-300 mb-8">Une application robuste pour l'organisation de votes électroniques avec sécurité renforcée et traçabilité complète.</p>
+
           <div class="space-y-6">
-            <div class="tech-card p-6 rounded-lg">
-              <h4 class="text-xl font-semibold mb-2 text-white">🔒 Sécurité maximale</h4>
-              <p class="text-gray-300">Chiffrement de bout en bout et authentification forte</p>
+            <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+              <h4 class="text-xl font-semibold mb-2 text-white flex items-center gap-3">
+                <span class="text-2xl">🔒</span>
+                Infrastructure Sécurisée
+              </h4>
+              <ul class="text-gray-300 ml-8 list-disc space-y-2">
+                <li>Chiffrement de bout en bout avec RSA/AES</li>
+                <li>Authentification multi-facteurs avec JWT</li>
+                <li>Audit logs et journalisation sécurisée</li>
+              </ul>
             </div>
-            <div class="tech-card p-6 rounded-lg">
-              <h4 class="text-xl font-semibold mb-2 text-white">📊 Temps réel</h4>
-              <p class="text-gray-300">Suivi des résultats avec statistiques détaillées</p>
+
+            <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+              <h4 class="text-xl font-semibold mb-2 text-white flex items-center gap-3">
+                <span class="text-2xl">📊</span>
+                Analyse en Temps Réel
+              </h4>
+              <ul class="text-gray-300 ml-8 list-disc space-y-2">
+                <li>Dashboard temps réel avec WebSocket</li>
+                <li>Visualisations statistiques dynamiques</li>
+                <li>Export des résultats au format PDF/CSV</li>
+              </ul>
             </div>
           </div>
-          <div class="mt-8">
-            <a href="referendum.html" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-all duration-300">
-              En savoir plus
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          <div class="mt-8 flex items-center gap-6">
+            <a href="referendum.html" class="px-6 py-3 bg-rose-600 text-white rounded-lg hover:bg-rose-700 transition-colors flex items-center gap-2">
+              Documentation
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </a>
+            <a href="#" class="text-rose-400 hover:text-rose-300 transition-colors flex items-center gap-2">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              Code source
+            </a>
           </div>
         </div>
-        <div class="relative">
-          <img src="/api/placeholder/600/400" alt="Référendum App" class="rounded-lg shadow-xl" />
-          <div class="absolute inset-0 bg-indigo-600 rounded-lg opacity-20"></div>
+        <div class="relative group">
+          <img src="/api/placeholder/600/400" alt="Interface du Référendum" class="rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-r from-rose-600 to-pink-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-sm text-white">Interface développée avec Spring Boot et React, intégrant des graphiques temps réel et un système de notification avancé</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Projet 2 -->
-    <div class="bg-slate-800 rounded-lg p-10 card-hover">
+    <!-- Train Game - Image à gauche -->
+    <div class="bg-slate-800 rounded-lg p-10 mb-20 card-hover">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="order-2 md:order-1 relative group">
-          <img src="/api/placeholder/600/400" alt="Train Game Interface" class="rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+        <div class="relative group">
+          <img src="ressources/img/TrainGame.png" alt="Train Game Interface" class="rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
           <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <p class="text-sm text-white">Interface développée avec JavaFX et SceneBuilder, utilisant des composants personnalisés pour une expérience utilisateur optimale</p>
           </div>
         </div>
-        <div class="order-1 md:order-2">
+        <div>
           <div class="flex items-center gap-3 mb-4">
-            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">Java</span>
-            <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">JavaFX</span>
+            <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Java</span>
+            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">JavaFX</span>
             <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Maven</span>
           </div>
           <h3 class="text-3xl font-bold mb-6 text-white">Train Game</h3>
@@ -164,13 +193,13 @@
           </div>
 
           <div class="mt-8 flex items-center gap-6">
-            <a href="train.html" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2">
+            <a href="train.html" class="px-6 py-3 bg-violet-600 text-white rounded-lg hover:bg-violet-700 transition-colors flex items-center gap-2">
               Documentation
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </a>
-            <a href="#" class="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-2">
+            <a href="#" class="text-violet-400 hover:text-violet-300 transition-colors flex items-center gap-2">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
               </svg>
@@ -180,6 +209,70 @@
         </div>
       </div>
     </div>
+
+    <!-- Nuit de l'Info - Image à droite -->
+    <div class="bg-slate-800 rounded-lg p-10 card-hover">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm">React</span>
+            <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-sm">Node.js</span>
+            <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">MongoDB</span>
+          </div>
+          <h3 class="text-3xl font-bold mb-6 text-white">Nuit de l'Info 2023</h3>
+          <p class="text-gray-300 mb-8">Challenge de développement Web de 16h en équipe pour créer une plateforme de sensibilisation écologique interactive</p>
+
+          <div class="space-y-6">
+            <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+              <h4 class="text-xl font-semibold mb-2 text-white flex items-center gap-3">
+                <span class="text-2xl">🏆</span>
+                Récompenses
+              </h4>
+              <ul class="text-gray-300 ml-8 list-disc space-y-2">
+                <li>1er Prix Innovation UI/UX</li>
+                <li>2ème Prix Accessibilité</li>
+                <li>Top 10 National</li>
+              </ul>
+            </div>
+
+            <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+              <h4 class="text-xl font-semibold mb-2 text-white flex items-center gap-3">
+                <span class="text-2xl">💡</span>
+                Innovations
+              </h4>
+              <ul class="text-gray-300 ml-8 list-disc space-y-2">
+                <li>Gamification écologique</li>
+                <li>Dashboard temps réel</li>
+                <li>PWA responsive</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8 flex items-center gap-6">
+            <a href="nuit.html" class="px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2">
+              Découvrir le projet
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-2">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              Code source
+            </a>
+          </div>
+        </div>
+        <div class="relative group">
+          <img src="/api/placeholder/600/400" alt="Nuit de l'Info Project" class="rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+          <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-sm text-white">Site web développé en équipe durant la Nuit de l'Info 2023, intégrant des fonctionnalités innovantes pour la sensibilisation environnementale</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
