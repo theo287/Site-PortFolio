@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théo Maurin - À Propos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 nav-blur">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center h-20 px-6">
+            <a href="index.html" class="text-2xl font-bold">
+                <span class="text-indigo-400">{</span> TM <span class="text-indigo-400">}</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-indigo-400 transition-colors">ACCUEIL</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Section Profil -->
+<section class="pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h1 class="text-5xl font-bold mb-8">
+                    <span class="gradient-text">À propos</span>
+                </h1>
+                <div class="space-y-6 text-gray-300">
+                    <p class="text-xl">
+                        Étudiant passionné en deuxième année de BUT Informatique à l'IUT de Montpellier, je me spécialise dans le développement logiciel et la gestion de projets informatiques.
+                    </p>
+                    <p>
+                        Depuis mon entrée en BUT Informatique en 2022, j'ai développé une solide expertise en programmation et en conception de systèmes. Ma formation m'a permis d'acquérir des compétences variées, allant du développement back-end à la gestion de bases de données.
+                    </p>
+                </div>
+
+                <div class="mt-12">
+                    <h2 class="text-2xl font-bold mb-6">Parcours Académique</h2>
+                    <div class="space-y-6">
+                        <div class="bg-slate-800 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold text-indigo-400">BUT Informatique</h3>
+                            <p class="text-gray-300">IUT de Montpellier • 2022 - Présent</p>
+                            <ul class="mt-4 space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-indigo-400">•</span>
+                                    Spécialisation en développement logiciel
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-indigo-400">•</span>
+                                    Projets pratiques en équipe
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-indigo-400">•</span>
+                                    Formation complète en informatique
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-slate-800 p-8 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-6">Compétences Techniques</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-400 mb-4">Langages de Programmation</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    Java (POO)
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    C
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    PHP
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    SQL
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-400 mb-4">Technologies</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    JavaFX
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    MySQL
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    Git
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
+                                    HTML/CSS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-6">Objectifs Professionnels</h2>
+                    <p class="text-gray-300 mb-4">
+                        Mon objectif est de devenir un développeur complet, capable de gérer des projets complexes et d'innover dans le domaine du développement logiciel. Je souhaite particulièrement me spécialiser dans :
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-400">•</span>
+                            Le développement d'applications sécurisées
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-400">•</span>
+                            La conception de systèmes distribués
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-indigo-400">•</span>
+                            L'architecture logicielle
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 bg-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-gray-400 mb-4 md:mb-0">
+            © 2024 - Théo Maurin
+        </div>
+        <div class="flex space-x-6">
+            <a href="https://www.linkedin.com/in/théo-maurin" class="text-gray-400 hover:text-indigo-400 transition-all duration-300">
+                <span class="sr-only">LinkedIn</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

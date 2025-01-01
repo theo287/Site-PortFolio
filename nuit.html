@@ -3,43 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuit de l'Info 2023 - Challenge Écologique</title>
+    <title>Nuit de l'Info 2024 - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .hero-gradient {
-            background: linear-gradient(135deg, #065f46 0%, #0f766e 100%);
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
         }
-
-        .glass {
-            background: rgba(6, 95, 70, 0.7);
+        .nav-blur {
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            background: rgba(15, 23, 42, 0.8);
         }
-
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #059669;
+            border: 4px solid #064e3b;
+        }
+        .timeline-line::after {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 25px;
+            bottom: -15px;
+            width: 4px;
+            background: #064e3b;
+        }
         .feature-card {
             transition: all 0.3s ease;
         }
-
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.2);
         }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 nav-blur">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center h-20 px-6">
+            <a href="index.html" class="text-2xl font-bold">
+                <span class="text-emerald-400">{</span> TM <span class="text-emerald-400">}</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors">RETOUR</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <!-- Hero Section -->
-<section class="hero-gradient min-h-[60vh] relative">
-    <div class="max-w-7xl mx-auto px-6 py-20">
-        <div class="text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Nuit de l'Info 2023</h1>
-            <p class="text-xl text-emerald-100 max-w-3xl mx-auto mb-12">Challenge national de développement web en équipe durant une nuit complète</p>
-            <div class="flex gap-4 justify-center">
-                <a href="#equipe" class="px-6 py-3 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-colors">
-                    Notre équipe
-                </a>
-                <a href="#projet" class="px-6 py-3 border border-emerald-400 rounded-lg hover:bg-emerald-400/10 transition-colors">
-                    Le projet
-                </a>
+<section class="hero-gradient pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="space-y-4">
+                    <h1 class="text-5xl font-bold">Nuit de l'Info 2024</h1>
+                    <p class="text-xl text-gray-300">Mon deuxième challenge de développement web en équipe</p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">HTML5</span>
+                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">CSS3</span>
+                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">JavaScript</span>
+                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">Tailwind CSS</span>
+                </div>
+                <div>
+                    <a href="https://raflpb.github.io/nuitInfo/site/src/" target="_blank"
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-all">
+                        Voir le projet
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="/api/placeholder/600/400" alt="Nuit de l'Info Interface" class="rounded-lg shadow-2xl" />
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg opacity-20"></div>
             </div>
         </div>
     </div>
@@ -48,138 +92,107 @@
 <!-- L'événement -->
 <section class="py-20">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="glass rounded-2xl p-10">
-            <h2 class="text-4xl font-bold mb-12 text-center">L'Événement</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="feature-card glass p-6 rounded-xl">
-                    <div class="text-3xl mb-4">⏰</div>
-                    <h3 class="text-xl font-bold mb-4">16 Heures Non-Stop</h3>
-                    <p class="text-emerald-100">De 16h40 le jeudi à 8h40 le vendredi, une course contre la montre pour développer une solution innovante</p>
-                </div>
-                <div class="feature-card glass p-6 rounded-xl">
-                    <div class="text-3xl mb-4">👥</div>
-                    <h3 class="text-xl font-bold mb-4">Travail d'Équipe</h3>
-                    <p class="text-emerald-100">Collaboration intense entre développeurs, designers et chefs de projet pour relever les défis</p>
-                </div>
-                <div class="feature-card glass p-6 rounded-xl">
-                    <div class="text-3xl mb-4">🎯</div>
-                    <h3 class="text-xl font-bold mb-4">Défis Multiples</h3>
-                    <p class="text-emerald-100">Un sujet principal et des défis secondaires proposés par les entreprises partenaires</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Notre Projet -->
-<section id="projet" class="py-20 bg-slate-800/50">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-12 text-center">Notre Solution</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="space-y-8">
-                <div class="glass p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6">Fonctionnalités Clés</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <span class="text-2xl">🌱</span>
-                            <div>
-                                <strong class="block">Eco-Score Personnel</strong>
-                                <p class="text-emerald-100">Calcul et suivi de l'impact environnemental individuel</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="text-2xl">🎮</span>
-                            <div>
-                                <strong class="block">Challenges Écologiques</strong>
-                                <p class="text-emerald-100">Défis hebdomadaires et récompenses virtuelles</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="text-2xl">📊</span>
-                            <div>
-                                <strong class="block">Visualisation des Données</strong>
-                                <p class="text-emerald-100">Tableaux de bord interactifs et graphiques en temps réel</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="glass p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6">Stack Technique</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-slate-800/50 rounded-lg">
-                            <h4 class="font-bold mb-2">Frontend</h4>
-                            <ul class="text-emerald-100 space-y-2">
-                                <li>• React.js</li>
-                                <li>• TailwindCSS</li>
-                                <li>• Chart.js</li>
-                            </ul>
-                        </div>
-                        <div class="p-4 bg-slate-800/50 rounded-lg">
-                            <h4 class="font-bold mb-2">Backend</h4>
-                            <ul class="text-emerald-100 space-y-2">
-                                <li>• Node.js</li>
-                                <li>• Express</li>
-                                <li>• MongoDB</li>
+                <div class="bg-slate-800 p-8 rounded-xl">
+                    <h2 class="text-3xl font-bold mb-6">L'événement</h2>
+                    <div class="space-y-4 text-gray-300">
+                        <p>La Nuit de l'Info est une compétition nationale qui réunit étudiants, enseignants et entreprises pendant une nuit complète. C'est un défi de développement web de 16h39 à 8h04 le lendemain matin.</p>
+                        <p>Pour ma deuxième participation, j'ai pu mettre à profit l'expérience acquise lors de l'édition 2023 sur le thème du changement climatique.</p>
+                        <div class="mt-6">
+                            <h3 class="text-xl font-semibold mb-3">Format unique</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    16 heures de développement non-stop
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Travail en équipe intensif
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Défis multiples à relever
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="relative">
-                <img src="/api/placeholder/800/600" alt="Interface du projet" class="rounded-xl shadow-2xl" />
-                <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl opacity-20"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- L'équipe -->
-<section id="equipe" class="py-20">
-    <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-12 text-center">Notre Équipe</h2>
-        <div class="glass p-10 rounded-2xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="text-4xl mb-4">👨‍💻</div>
-                    <h3 class="text-xl font-bold mb-2">Développement</h3>
-                    <p class="text-emerald-100">4 développeurs full-stack passionnés</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl mb-4">🎨</div>
-                    <h3 class="text-xl font-bold mb-2">Design</h3>
-                    <p class="text-emerald-100">2 designers UI/UX créatifs</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl mb-4">📋</div>
-                    <h3 class="text-xl font-bold mb-2">Gestion</h3>
-                    <p class="text-emerald-100">1 chef de projet agile</p>
+                <div class="bg-slate-800 p-8 rounded-xl">
+                    <h2 class="text-3xl font-bold mb-6">Le Sujet</h2>
+                    <div class="space-y-4 text-gray-300">
+                        <p>Cette année, le défi principal portait sur [description du sujet 2024]. Notre équipe a dû concevoir une solution web innovante répondant à cette problématique.</p>
+                        <p>Nous avons choisi de nous concentrer sur l'aspect front-end, en créant une interface intuitive et responsive permettant aux utilisateurs de [objectifs spécifiques].</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="mt-12 text-center p-8 bg-slate-800/50 rounded-xl">
-                <h3 class="text-2xl font-bold mb-6">Organisation du Travail</h3>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div class="feature-card p-4">
-                        <div class="text-2xl mb-2">📝</div>
-                        <h4 class="font-bold mb-2">Planning</h4>
-                        <p class="text-emerald-100">Sprints de 2h avec objectifs définis</p>
+            <div class="space-y-8">
+                <div class="bg-slate-800 p-8 rounded-xl">
+                    <h2 class="text-3xl font-bold mb-6">Compétences Développées</h2>
+                    <div class="space-y-6">
+                        <div class="p-4 bg-slate-900 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Travail d'Équipe</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Collaboration sous pression
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Communication efficace
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Gestion du temps
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-slate-900 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Développement Web</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Maîtrise de Tailwind CSS
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    JavaScript moderne
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Design responsive
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-slate-900 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Gestion de Projet</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Organisation agile
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Planification rapide
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="text-emerald-400">•</span>
+                                    Prise de décision
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="feature-card p-4">
-                        <div class="text-2xl mb-2">🤝</div>
-                        <h4 class="font-bold mb-2">Collaboration</h4>
-                        <p class="text-emerald-100">Git, Discord et Trello</p>
-                    </div>
-                    <div class="feature-card p-4">
-                        <div class="text-2xl mb-2">🔄</div>
-                        <h4 class="font-bold mb-2">Méthode</h4>
-                        <p class="text-emerald-100">Approche Agile adaptée</p>
-                    </div>
-                    <div class="feature-card p-4">
-                        <div class="text-2xl mb-2">✨</div>
-                        <h4 class="font-bold mb-2">Innovation</h4>
-                        <p class="text-emerald-100">Brainstorming continu</p>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-xl">
+                    <h2 class="text-3xl font-bold mb-6">Expérience Acquise</h2>
+                    <div class="space-y-4 text-gray-300">
+                        <p>Cette deuxième participation m'a permis de consolider mes compétences en développement web front-end et en travail d'équipe. L'expérience de l'année précédente a été précieuse pour mieux gérer le temps et organiser le travail.</p>
+                        <p>J'ai particulièrement apprécié le défi technique de créer une interface moderne en utilisant Tailwind CSS et JavaScript, tout en respectant les contraintes de temps.</p>
                     </div>
                 </div>
             </div>
@@ -188,60 +201,54 @@
 </section>
 
 <!-- Timeline -->
-<section class="py-20 bg-slate-800/50">
+<section class="py-20 bg-slate-800">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-12 text-center">Déroulement</h2>
-        <div class="glass p-10 rounded-2xl">
-            <div class="relative">
-                <div class="absolute top-0 bottom-0 left-4 w-0.5 bg-emerald-400/50"></div>
-                <ul class="space-y-12">
-                    <li class="ml-12 relative">
-                        <div class="absolute -left-12 w-4 h-4 rounded-full bg-emerald-400 mt-1.5"></div>
-                        <div class="bg-slate-800/50 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold">16h40 - Lancement</h4>
-                            <p class="text-emerald-100">Découverte du sujet et organisation de l'équipe</p>
-                        </div>
-                    </li>
-                    <li class="ml-12 relative">
-                        <div class="absolute -left-12 w-4 h-4 rounded-full bg-emerald-400 mt-1.5"></div>
-                        <div class="bg-slate-800/50 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold">18h00 - Phase de Développement</h4>
-                            <p class="text-emerald-100">Mise en place de l'architecture et développement des fonctionnalités principales</p>
-                        </div>
-                    </li>
-                    <li class="ml-12 relative">
-                        <div class="absolute -left-12 w-4 h-4 rounded-full bg-emerald-400 mt-1.5"></div>
-                        <div class="bg-slate-800/50 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold">02h00 - Challenges Bonus</h4>
-                            <p class="text-emerald-100">Travail sur les défis secondaires et optimisations</p>
-                        </div>
-                    </li>
-                    <li class="ml-12 relative">
-                        <div class="absolute -left-12 w-4 h-4 rounded-full bg-emerald-400 mt-1.5"></div>
-                        <div class="bg-slate-800/50 p-6 rounded-xl">
-                            <h4 class="text-xl font-bold">08h40 - Rendu Final</h4>
-                            <p class="text-emerald-100">Présentation du projet et des fonctionnalités développées</p>
-                        </div>
-                    </li>
-                </ul>
+        <h2 class="text-3xl font-bold mb-16 text-center">Déroulement du Projet</h2>
+        <div class="relative max-w-3xl mx-auto">
+            <div class="ml-12">
+                <div class="mb-16 relative timeline-dot timeline-line">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">16h39 - Lancement</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                        <p class="text-gray-300">Découverte du sujet et brainstorming en équipe. Organisation des tâches et définition de la stratégie.</p>
+                    </div>
+                </div>
+
+                <div class="mb-16 relative timeline-dot timeline-line">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">20h00 - Développement</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                        <p class="text-gray-300">Mise en place de la structure HTML, intégration avec Tailwind CSS et développement des fonctionnalités JavaScript.</p>
+                    </div>
+                </div>
+
+                <div class="mb-16 relative timeline-dot timeline-line">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">02h00 - Phase Finale</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                        <p class="text-gray-300">Finalisation des fonctionnalités, tests et optimisations des performances.</p>
+                    </div>
+                </div>
+
+                <div class="relative timeline-dot">
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">08h04 - Rendu</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                        <p class="text-gray-300">Déploiement du projet et documentation finale.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="py-12 bg-slate-800">
+<!-- Retour -->
+<section class="py-12">
     <div class="max-w-7xl mx-auto px-6 text-center">
-        <p class="text-emerald-100">Nuit de l'Info 2023 - Une expérience unique de développement collaboratif</p>
-        <div class="flex justify-center gap-6 mt-6">
-            <a href="#" class="text-emerald-400 hover:text-emerald-300 transition-colors">
-                <span class="sr-only">GitHub</span>
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                </svg>
-            </a>
-        </div>
+        <a href="index.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </a>
     </div>
-</footer>
+</section>
+
 </body>
 </html>

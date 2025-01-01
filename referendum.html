@@ -7,138 +7,157 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .hero-gradient {
-            background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
         }
         .nav-blur {
             backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(15, 23, 42, 0.8);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(129, 140, 248, 0.2);
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-slate-900 text-white">
 <!-- Navigation -->
 <nav class="fixed w-full z-50 nav-blur">
     <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center h-20 px-6">
             <a href="index.html" class="text-2xl font-bold">
-                <span class="text-indigo-600">{</span> DEV <span class="text-indigo-600">}</span>
+                <span class="text-indigo-400">{</span> TM <span class="text-indigo-400">}</span>
             </a>
             <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-600 hover:text-indigo-600 transition-colors">RETOUR</a>
+                <a href="index.html" class="text-gray-300 hover:text-indigo-400 transition-colors">RETOUR</a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Hero Projet -->
-<section class="hero-gradient pt-32 pb-16">
+<!-- Hero Section -->
+<section class="pt-32 pb-16 hero-gradient">
     <div class="max-w-7xl mx-auto px-6">
-        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Référendum Sécurisé</h1>
-        <p class="text-xl text-gray-600 max-w-2xl">Une application Java innovante pour la gestion sécurisée de votes électroniques</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-3 py-1 bg-rose-500/20 text-rose-300 rounded-full text-sm">Java</span>
+                    <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">JavaFX</span>
+                    <span class="px-3 py-1 bg-fuchsia-500/20 text-fuchsia-300 rounded-full text-sm">MySQL</span>
+                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Sockets</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Référendum Sécurisé</h1>
+                <p class="text-xl text-gray-300">
+                    Une application robuste développée en Java pour l'organisation et la gestion de votes électroniques sécurisés
+                </p>
+            </div>
+            <div class="relative">
+                <img src="/api/placeholder/600/400" alt="Interface du Référendum" class="rounded-lg shadow-xl" />
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Contenu du Projet -->
-<section class="py-16">
+<!-- Description détaillée -->
+<section class="py-20">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Aperçu -->
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <img src="/api/placeholder/800/600" alt="Aperçu du projet" class="rounded-lg mb-8 w-full"/>
-                <div class="space-y-4">
-                    <div class="flex items-center text-gray-600">
-                        <svg class="w-6 h-6 mr-3 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                        <span>Durée du projet: 3 mois</span>
-                    </div>
-                    <div class="flex items-center text-gray-600">
-                        <svg class="w-6 h-6 mr-3 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                        <span>Projet individuel</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Description -->
+            <!-- Technologies -->
             <div class="space-y-8">
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Description du Projet</h2>
-                    <p class="text-gray-600 mb-4">
-                        Cette application Java permet l'organisation et la gestion de référendums électroniques de manière totalement sécurisée. Elle intègre des fonctionnalités avancées de cryptographie et d'authentification pour garantir l'intégrité des votes.
-                    </p>
-                    <p class="text-gray-600">
-                        Le système assure l'anonymat des votants tout en permettant la vérification de l'identité et la prévention des votes multiples.
-                    </p>
+                <div class="bg-slate-800 rounded-lg p-8 card-hover">
+                    <h2 class="text-2xl font-bold mb-6">Architecture Technique</h2>
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4 flex items-center gap-3">
+                                <span class="text-2xl">🎨</span>
+                                Interface Utilisateur
+                            </h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Interface moderne avec JavaFX</li>
+                                <li>• Design responsive et adaptatif</li>
+                                <li>• Interactions utilisateur fluides</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4 flex items-center gap-3">
+                                <span class="text-2xl">🔒</span>
+                                Sécurité
+                            </h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Chiffrement El Gamal pour les votes</li>
+                                <li>• Sockets Java sécurisés</li>
+                                <li>• Protection contre les votes multiples</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4 flex items-center gap-3">
+                                <span class="text-2xl">💾</span>
+                                Base de Données
+                            </h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• MySQL avec Hibernate</li>
+                                <li>• Gestion des sessions utilisateurs</li>
+                                <li>• Stockage sécurisé des votes</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Technologies Utilisées</h2>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-gray-600">
-                            <span class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></span>
-                            Java 17
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <span class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></span>
-                            Spring Security
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <span class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></span>
-                            PostgreSQL
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <span class="w-2 h-2 bg-indigo-600 rounded-full mr-3"></span>
-                            JWT Authentication
-                        </li>
-                    </ul>
+            <!-- Fonctionnalités -->
+            <div class="space-y-8">
+                <div class="bg-slate-800 rounded-lg p-8 card-hover">
+                    <h2 class="text-2xl font-bold mb-6">Fonctionnalités</h2>
+
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Organisation des Votes</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Création et configuration de référendums</li>
+                                <li>• Gestion des périodes de vote</li>
+                                <li>• Système de validation des électeurs</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Processus de Vote</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Interface de vote intuitive</li>
+                                <li>• Confirmation en temps réel</li>
+                                <li>• Anonymat garanti</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Administration</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Tableau de bord administrateur</li>
+                                <li>• Suivi en temps réel</li>
+                                <li>• Gestion des utilisateurs</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Fonctionnalités -->
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <div class="text-4xl mb-4">🔒</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Sécurité Maximale</h3>
-                <ul class="space-y-2 text-gray-600">
-                    <li>• Chiffrement de bout en bout</li>
-                    <li>• Double authentification</li>
-                    <li>• Protection contre la fraude</li>
-                </ul>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <div class="text-4xl mb-4">📊</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Analyse en Temps Réel</h3>
-                <ul class="space-y-2 text-gray-600">
-                    <li>• Statistiques détaillées</li>
-                    <li>• Visualisation des résultats</li>
-                    <li>• Export des données</li>
-                </ul>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <div class="text-4xl mb-4">👥</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Gestion des Utilisateurs</h3>
-                <ul class="space-y-2 text-gray-600">
-                    <li>• Rôles personnalisables</li>
-                    <li>• Interface administrateur</li>
-                    <li>• Historique des actions</li>
-                </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="py-12 bg-gray-100">
+<!-- Retour -->
+<section class="py-12 bg-slate-800">
     <div class="max-w-7xl mx-auto px-6 text-center">
-        <a href="index.html" class="text-indigo-600 hover:text-indigo-700 transition-colors">
+        <a href="index.html" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
             Retour à l'accueil
         </a>
     </div>
-</footer>
+</section>
+
 </body>
 </html>
