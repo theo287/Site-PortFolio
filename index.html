@@ -33,6 +33,56 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.1);
     }
+
+    /* Styles pour les images des projets */
+    .project-image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem; /* Arrondi des coins */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    }
+
+    .project-image {
+      transition: transform 0.5s ease-in-out; /* Animation de zoom */
+      border-radius: 0.75rem; /* Pour assurer que l'image reste arrondie */
+    }
+
+    .project-image-container:hover .project-image {
+      transform: scale(1.1); /* Zoom légèrement au survol */
+    }
+
+    .project-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3); /* Overlay sombre */
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out; /* Animation d'apparition */
+      border-radius: 0.75rem; /* Correspond à l'arrondi des coins de l'image */
+    }
+
+    .project-image-container:hover .project-image-overlay {
+      opacity: 1; /* Affiche l'overlay au survol */
+    }
+
+    .project-image-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out; /* Animation d'apparition du texte */
+    }
+
+    .project-image-container:hover .project-image-text {
+      opacity: 1; /* Affiche le texte au survol */
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-white">
@@ -47,6 +97,8 @@
         <a href="#projets" class="text-gray-300 hover:text-indigo-400 transition-colors">PROJETS</a>
         <a href="#competences" class="text-gray-300 hover:text-indigo-400 transition-colors">COMPÉTENCES</a>
         <a href="profil.html" class="text-gray-300 hover:text-indigo-400 transition-colors">À PROPOS</a>
+        <a href="portfolio.html" class="text-gray-300 hover:text-indigo-400 transition-colors">PORTFOLIO</a>
+        <a href="#contact" class="text-gray-300 hover:text-indigo-400 transition-colors">CONTACT</a>
       </div>
     </div>
   </div>
@@ -81,6 +133,51 @@
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-6xl md:text-7xl font-bold text-center mb-20 gradient-text">PROJETS</h2>
 
+    <!-- Stage CHU Montpellier -->
+    <div class="bg-slate-800 rounded-lg p-10 mb-20 card-hover">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Stage</span>
+            <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">CHU Montpellier</span>
+          </div>
+          <h3 class="text-3xl font-bold mb-6 text-white">Stage au CHU de Montpellier</h3>
+          <p class="text-gray-300 mb-8">
+            Stage de 2 mois au sein de l'équipe AES (Accès Externes et Sécurité) du CHU de Montpellier, axé sur la gestion des pare-feu et la création d'un formulaire sécurisé.
+          </p>
+          <p class="text-gray-300 mb-8">
+            Projet réalisé individuellement pendant 2 mois.
+          </p>
+          <div class="space-y-6">
+            <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+              <h4 class="text-xl font-semibold mb-2 text-white flex items-center gap-3">
+                <span class="text-2xl">🛡️</span>
+                Sécurité et Gestion
+              </h4>
+              <ul class="text-gray-300 ml-8 list-disc space-y-2">
+                <li>Gestion des règles de pare-feu</li>
+                <li>Création d'un formulaire web sécurisé</li>
+                <li>Protection des données sensibles</li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-8">
+            <a href="chu.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
+              En savoir plus
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-image-container">
+          <img src="ressources/img/chu.jpg" alt="CHU Montpellier" class="project-image" />
+          <div class="project-image-overlay"></div>
+          <div class="project-image-text">Missions de sécurité et gestion des accès au CHU</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Référendum -->
     <div class="bg-slate-800 rounded-lg p-10 mb-20 card-hover">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -92,6 +189,9 @@
           </div>
           <h3 class="text-3xl font-bold mb-6 text-white">Référendum Sécurisé</h3>
           <p class="text-gray-300 mb-8">Application Java pour l'organisation de votes électroniques avec sécurité renforcée utilisant le chiffrement El Gamal et des sockets sécurisés.</p>
+          <p class="text-gray-300 mb-8">
+              Projet académique réalisé en équipe de 4 personnes sur une durée de 5 mois.
+          </p>
 
           <div class="space-y-6">
             <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
@@ -116,12 +216,10 @@
             </a>
           </div>
         </div>
-        <div class="relative group">
-          <img src="ressources/img/user.png" alt="Interface du Référendum" class="rounded-lg shadow-xl transition-transform duration-300" />
-          <div class="absolute inset-0 bg-gradient-to-r from-rose-600 to-pink-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="text-sm text-white">Application desktop sécurisée développée en Java et JavaFX</p>
-          </div>
+        <div class="project-image-container">
+          <img src="ressources/img/user.png" alt="Interface du Référendum" class="project-image" />
+          <div class="project-image-overlay"></div>
+          <div class="project-image-text">Application desktop sécurisée développée en Java et JavaFX</div>
         </div>
       </div>
     </div>
@@ -129,12 +227,10 @@
     <!-- Train Game -->
     <div class="bg-slate-800 rounded-lg p-10 mb-20 card-hover">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="relative group">
-          <img src="ressources/img/TrainGame.png" alt="Train Game Interface" class="rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="text-sm text-white">Interface développée avec Java et JavaFX</p>
-          </div>
+        <div class="project-image-container">
+          <img src="ressources/img/TrainGame.png" alt="Train Game Interface" class="project-image" />
+          <div class="project-image-overlay"></div>
+          <div class="project-image-text">Interface développée avec Java et JavaFX</div>
         </div>
         <div>
           <div class="flex items-center gap-3 mb-4">
@@ -143,6 +239,9 @@
           </div>
           <h3 class="text-3xl font-bold mb-6 text-white">Train Game</h3>
           <p class="text-gray-300 mb-8">Simulation ferroviaire développée en Java avec une interface JavaFX et une logique de gestion des cartes complexe.</p>
+          <p class="text-gray-300 mb-8">
+              Projet en Duo réalisé sur une durée de 3 mois.
+          </p>
 
           <div class="space-y-6">
             <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
@@ -182,6 +281,9 @@
           </div>
           <h3 class="text-3xl font-bold mb-6 text-white">Nuit de l'Info 2024</h3>
           <p class="text-gray-300 mb-8">Challenge de développement Web de 16h en équipe, intégration front-end avec les technologies modernes de développement web.</p>
+          <p class="text-gray-300 mb-8">
+              Projet réalisé en équipe de 7 personnes lors d'un événement de développement web.
+          </p>
           <div class="space-y-6">
             <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
               <h4 class="text-xl font-semibold mb-2 text-white flex items-center gap-3">
@@ -203,7 +305,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </a>
-            <a href="https://raflpb.github.io/nuitInfo/site/src/" target="_blank" class="px-6 py-3 border border-emerald-400 text-emerald-400 rounded-lg hover:bg-emerald-400 hover:text-white transition-colors inline-flex items-center gap-2">
+            <a href="https://raflpb.github.io/nuitInfo/site/src/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border border-emerald-400 text-emerald-400 rounded-lg hover:bg-emerald-400 hover:text-white transition-colors inline-flex items-center gap-2">
               Voir le site
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -211,12 +313,10 @@
             </a>
           </div>
         </div>
-        <div class="relative group">
-          <img src="ressources/img/Nuit.png" alt="Nuit de l'Info Project" class="rounded-lg shadow-xl transition-transform duration-300 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-          <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <p class="text-sm text-white">Site développé avec HTML, CSS (Tailwind) et JavaScript pour la Nuit de l'Info</p>
-          </div>
+        <div class="project-image-container">
+          <img src="ressources/img/Nuit.png" alt="Nuit de l'Info Project" class="project-image" />
+          <div class="project-image-overlay"></div>
+          <div class="project-image-text">Site développé avec HTML, CSS (Tailwind) et JavaScript pour la Nuit de l'Info</div>
         </div>
       </div>
     </div>
@@ -225,13 +325,38 @@
 </section>
 
 <!-- Compétences -->
+<!-- Section Technologies mise à jour -->
 <section id="competences" class="py-32 bg-slate-800">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-6xl md:text-7xl font-bold text-center mb-20 gradient-text">TECHNOLOGIES</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Développement Front-end -->
+      <div class="tech-card p-8 rounded-lg card-hover">
+        <div class="text-4xl mb-6">🎨</div>
+        <h3 class="text-2xl font-bold mb-4 text-white">Front-end</h3>
+        <ul class="space-y-3 text-gray-300">
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>React
+          </li>
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Tailwind CSS
+          </li>
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>JavaScript / TypeScript
+          </li>
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>HTML5 / CSS3
+          </li>
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>GSAP Animations
+          </li>
+        </ul>
+      </div>
+
+      <!-- Java & Backend -->
       <div class="tech-card p-8 rounded-lg card-hover">
         <div class="text-4xl mb-6">☕️</div>
-        <h3 class="text-2xl font-bold mb-4 text-white">Java</h3>
+        <h3 class="text-2xl font-bold mb-4 text-white">Java & Backend</h3>
         <ul class="space-y-3 text-gray-300">
           <li class="flex items-center">
             <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Java 17
@@ -245,9 +370,13 @@
           <li class="flex items-center">
             <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Java Sockets
           </li>
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>PHP
+          </li>
         </ul>
       </div>
 
+      <!-- Cybersécurité -->
       <div class="tech-card p-8 rounded-lg card-hover">
         <div class="text-4xl mb-6">🔐</div>
         <h3 class="text-2xl font-bold mb-4 text-white">Cybersécurité</h3>
@@ -259,7 +388,10 @@
             <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Sockets Sécurisés
           </li>
           <li class="flex items-center">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Sécurité C
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Sécurité Web
+          </li>
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Pare-feux
           </li>
           <li class="flex items-center">
             <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Authentification
@@ -267,26 +399,54 @@
         </ul>
       </div>
 
+      <!-- Données & DevOps -->
       <div class="tech-card p-8 rounded-lg card-hover">
-        <div class="text-4xl mb-6">💻</div>
-        <h3 class="text-2xl font-bold mb-4 text-white">Développement</h3>
+        <div class="text-4xl mb-6">🛠️</div>
+        <h3 class="text-2xl font-bold mb-4 text-white">Données & Outils</h3>
         <ul class="space-y-3 text-gray-300">
           <li class="flex items-center">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>SQL & PL/SQL
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>MySQL
           </li>
           <li class="flex items-center">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>PHP
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Git & GitHub
           </li>
           <li class="flex items-center">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>HTML/CSS
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>VS Code
           </li>
           <li class="flex items-center">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>JavaScript
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>IntelliJ IDEA
+          </li>
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></span>Méthodologie Agile
           </li>
         </ul>
       </div>
     </div>
   </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-32">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-6xl md:text-7xl font-bold text-center mb-20 gradient-text">CONTACT</h2>
+        <form class="space-y-6">
+            <div>
+                <label for="name" class="block text-gray-300 mb-2">Nom</label>
+                <input type="text" id="name" class="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-indigo-400" placeholder="Votre nom">
+            </div>
+            <div>
+                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                <input type="email" id="email" class="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-indigo-400" placeholder="Votre email">
+            </div>
+            <div>
+                <label for="message" class="block text-gray-300 mb-2">Message</label>
+                <textarea id="message" rows="5" class="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-indigo-400" placeholder="Votre message"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-300">Envoyer</button>
+            </div>
+        </form>
+    </div>
 </section>
 
 <!-- Footer -->
@@ -296,13 +456,13 @@
       © 2024 - Théo Maurin
     </div>
     <div class="flex space-x-6">
-      <a href="https://www.linkedin.com/in/th%C3%A9o-maurin-4a03282ab/" class="text-gray-400 hover:text-indigo-400 transition-all duration-300">
+      <a href="https://www.linkedin.com/in/th%C3%A9o-maurin-4a03282ab/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-all duration-300">
         <span class="sr-only">LinkedIn</span>
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
         </svg>
       </a>
-      <a href="https://github.com/theo287" class="text-gray-400 hover:text-indigo-400 transition-all duration-300">
+      <a href="https://github.com/theo287" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-all duration-300">
         <span class="sr-only">GitHub</span>
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>

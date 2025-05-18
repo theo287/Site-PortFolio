@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage CHU Montpellier - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(129, 140, 248, 0.2);
+        }
+        .section-padding {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .list-style {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .skill-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .card {
+            background-color: rgba(30, 41, 59, 0.8); /* Darker background */
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 nav-blur">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center h-20 px-6">
+            <a href="index.html" class="text-2xl font-bold">
+                <span class="text-indigo-400">{</span> TM <span class="text-indigo-400">}</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-indigo-400 transition-colors">RETOUR</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-16 hero-gradient">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Stage</span>
+                    <span class="px-3 py-1 bg-sky-500/20 text-sky-300 rounded-full text-sm">CHU Montpellier</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Stage en CyberSécurité au CHU de Montpellier</h1>
+                <div class="space-y-4">
+                    <p class="text-xl text-gray-300">
+                        J'ai effectué un stage de 2 mois au sein de l'équipe AES (Accès Externes et Sécurité) du CHU de Montpellier, du 27 janvier 2025 au 21 mars 2025.
+                    </p>
+                    <p class="text-xl text-gray-300">
+                        Ce stage m'a permis de travailler sur la gestion des accès distants et la création d'un formulaire sécurisé, contribuant ainsi à la protection des données sensibles de l'hôpital.
+                    </p>
+                    <p class="text-xl text-gray-300">
+                        Maître de stage: Damien Garcia
+                    </p>
+                    <p class="text-xl text-gray-300">
+                        Équipe d’accueil : AES (Équipes Accès Externe et Sécurité)
+                    </p>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="ressources/img/image.png" alt="CHU Montpellier" class="rounded-lg shadow-xl" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contexte -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="card">
+            <h2 class="text-3xl font-bold mb-6">Contexte</h2>
+            <div class="space-y-4">
+                <p class="text-xl text-gray-300">
+                    Le CHU de Montpellier est un pôle d’excellence médicale et technologique, et l'un des établissements de santé les plus anciens de France.
+                </p>
+                <p class="text-xl text-gray-300">
+                    Il est l’établissement support du Groupement Hospitalier de Territoire (GHT) Est-Hérault & Sud-Aveyron, visant à favoriser une mutualisation des moyens techniques et humains entre plusieurs hôpitaux.
+                </p>
+                <p class="text-xl text-gray-300">
+                    La numérisation des services hospitaliers a renforcé la dépendance des établissements de santé aux infrastructures informatiques, faisant de la cybersécurité une priorité.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Missions -->
+<section class="py-20 bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="card">
+            <h2 class="text-3xl font-bold mb-6">Missions</h2>
+            <div class="space-y-4">
+                <p class="text-xl text-gray-300">
+                    Mon stage s’est déroulé en deux grandes phases : la gestion des accès distants et l’étude de la micro-segmentation, et la sécurisation des connexions via Apache Guacamole.
+                </p>
+                <h3 class="text-2xl font-bold mt-4">Gestion des accès distants et découverte de l’infrastructure</h3>
+                <ul class="list-style text-gray-300">
+                    <li>Gestion des tickets d’incident</li>
+                    <li>Analyse des accès distants et des connexions VPN</li>
+                    <li>Ajustement des règles de pare-feu</li>
+                </ul>
+                <h3 class="text-2xl font-bold mt-4">Sécurisation des connexions via Apache Guacamole</h3>
+                <ul class="list-style text-gray-300">
+                    <li>Mise en place d’un formulaire sécurisé en PHP</li>
+                    <li>Suppression du stockage des mots de passe en clair</li>
+                    <li>Interaction avec l’API REST de Guacamole</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Aspects Techniques -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="card">
+            <h2 class="text-3xl font-bold mb-6">Aspects Techniques</h2>
+            <div class="space-y-4">
+                <h3 class="text-2xl font-bold mt-4">Formulaire Sécurisé en PHP</h3>
+                <p class="text-xl text-gray-300">
+                    Le formulaire a été développé en PHP, HTML et Tailwind CSS, avec une authentification via l’Active Directory.
+                </p>
+                <h3 class="text-2xl font-bold mt-4">API REST de Guacamole</h3>
+                <p class="text-xl text-gray-300">
+                    L'interaction avec l'API REST de Guacamole a permis de créer, modifier et supprimer des connexions de manière sécurisée.
+                </p>
+                <h3 class="text-2xl font-bold mt-4">Déploiement</h3>
+                <p class="text-xl text-gray-300">
+                    La solution a été déployée sur un serveur web dédié avec NGINX, PHP-FPM et des certificats SSL auto-signés.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Conclusion -->
+<section class="py-20 bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="card">
+            <h2 class="text-3xl font-bold mb-6">Conclusion</h2>
+            <div class="space-y-4">
+                <p class="text-xl text-gray-300">
+                    Ce stage m’a permis d’approfondir mes connaissances en cybersécurité, en réseau et en administration système.
+                </p>
+                <p class="text-xl text-gray-300">
+                    J'ai développé des compétences techniques solides et une rigueur indispensable pour travailler dans un environnement critique.
+                </p>
+                <h3 class="text-2xl font-bold mt-4">Compétences Acquises</h3>
+                <ul class="list-style text-gray-300">
+                    <li class="skill-item">AC31.01 : Choisir et implémenter les architectures adaptées</li>
+                    <li class="skill-item">AC31.03 : Intégrer des solutions dans un environnement de production</li>
+                    <li class="skill-item">AC12.01 : Analyser un problème avec méthode</li>
+                    <li class="skill-item">AC13.01 : Identifier les différents composants d’un système numérique</li>
+                    <li class="skill-item">AC13.03 : Installer et configurer un système d’exploitation et des outils de développement</li>
+                    <li class="skill-item">AC23.01 : Concevoir et développer des applications communicantes</li>
+                    <li class="skill-item">AC23.02 : Utiliser des serveurs et des services réseaux virtualisés</li>
+                    <li class="skill-item">AC23.03 : Sécuriser les services et données d’un système</li>
+                    <li class="skill-item">AC33.01 : Créer des processus de traitement automatisé</li>
+                    <li class="skill-item">AC33.02 : Configurer un serveur et des services réseaux de manière avancée</li>
+                    <li class="skill-item">AC33.03 : Appliquer une politique de sécurité au niveau de l’infrastructure</li>
+                    <li class="skill-item">AC26.04 : Rendre compte de son activité professionnelle</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Retour -->
+<section class="py-12 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <a href="index.html" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Retour à l'accueil
+        </a>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio d'Apprentissage - Théo Maurin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #090B35 40%, #0F1E4E 80%, #162A59 100%);
+            background-attachment: fixed; /* Garde le dégradé fixe pendant le défilement */
+            color: #E5E7EB; /* Light Gray */
+            min-height: 100vh; /* S'assure que le dégradé couvre toute la hauteur */
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Effet de "glow" bleu en arrière-plan */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 15%;
+            width: 40vw;
+            height: 40vh;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 70%);
+            filter: blur(70px);
+            z-index: -1;
+        }
+        
+        /* Deuxième "glow" pour ajouter du dynamisme */
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 35vw;
+            height: 35vh;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(109, 40, 217, 0.05) 50%, transparent 70%);
+            filter: blur(70px);
+            z-index: -1;
+        }
+        
+        /* Animation subtile des gradients en arrière-plan */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(25, 36, 70, 0.7) 100%);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(120deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            animation: flash 8s infinite;
+            z-index: 0;
+        }
+        
+        @keyframes flash {
+            0% {
+                transform: translateX(-100%);
+            }
+            20%, 100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(17, 24, 39, 0.7); /* Dark Gray with Transparency */
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #210b9b 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .competence-card {
+            background-color: rgba(30, 41, 59, 0.8);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .competence-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(30, 58, 138, 0.1) 0%,
+                rgba(30, 64, 175, 0.05) 100%
+            );
+            transform: rotate(-45deg);
+            z-index: -1;
+        }
+        .competence-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .competence-title {
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .trace-box {
+            background-color: rgba(17, 24, 39, 0.5);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            border-left: 4px solid #3b82f6;
+            margin: 1.5rem 0;
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7.5px);
+            -webkit-backdrop-filter: blur(7.5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        /* Couleurs spécifiques par compétence */
+        .optimiser {
+            border-left-color: #f59e0b;
+        }
+        .optimiser-tag {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+        }
+        .selectionner {
+            border-left-color: #ec4899;
+        }
+        .selectionner-tag {
+            background-color: rgba(236, 72, 153, 0.2);
+            color: #f9a8d4;
+        }
+        .appliquer {
+            border-left-color: #3b82f6;
+        }
+        .appliquer-tag {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 nav-blur">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center h-20 px-6">
+            <a href="index.html" class="text-2xl font-bold">
+                <span class="text-blue-400">{</span> TM <span class="text-blue-400">}</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors">ACCUEIL</a>
+                <a href="profil.html" class="text-gray-300 hover:text-blue-400 transition-colors">À PROPOS</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-16 hero-gradient">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4">
+                <span class="text-white">Portfolio d'Apprentissage</span>
+            </h1>
+            <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                Analyse des compétences développées au cours de mon parcours DACS (Déploiement d'Applications Communicantes et Sécurisées) du BUT Informatique à l'IUT de Montpellier.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="space-y-16">
+            <!-- Compétence 1 : Sélectionner les algorithmes adéquats -->
+            <div class="competence-card">
+                <div class="flex flex-wrap items-center gap-4 mb-6">
+                    <span class="tag selectionner-tag">Algorithmes</span>
+                    <span class="tag selectionner-tag">Optimisation</span>
+                    <span class="tag selectionner-tag">Cryptographie</span>
+                </div>
+                
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-pink-500/20 text-pink-400">
+                        <i class="fas fa-code text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">
+                        <span class="text-pink-400">Niveau 2</span> : Sélectionner les algorithmes adéquats pour répondre à un problème donné
+                    </h2>
+                </div>
+                
+                <p class="text-xl text-gray-300 mb-6 pl-16">
+                    <strong class="text-pink-300">Composante Essentielle :</strong> Utiliser des techniques algorithmiques adaptées pour des problèmes complexes
+                </p>
+                
+                <div class="space-y-8 mt-10">
+                    <div class="bg-slate-800/50 p-8 rounded-lg glassmorphism">
+                        <h3 class="text-xl font-semibold text-pink-300 mb-4 flex items-center gap-3">
+                            <i class="fas fa-project-diagram text-lg"></i>
+                            Projet de Référendum Sécurisé
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Dans le cadre de notre SAE "Systèmes distribués", j'ai dû implémenter l'algorithme de chiffrement El Gamal pour sécuriser un système de vote électronique. Ce choix algorithmique était crucial car il devait garantir à la fois la confidentialité des votes et la possibilité de vérifier l'intégrité du processus électoral sans compromettre l'anonymat des votants.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-900 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-pink-300 mb-3">Contraintes techniques</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Préservation de l'anonymat absolu des votes
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Impossibilité de modifier les votes sans détection
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Vérification des résultats sans déchiffrer les votes individuels
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Performance adéquate pour traiter un grand nombre de votes
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-900 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-pink-300 mb-3">Solutions apportées</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Utilisation d'El Gamal pour ses propriétés homomorphiques
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Implémentation d'une architecture à clé publique/privée distribuée
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Optimisation des calculs modulaires pour améliorer la performance
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-pink-400 mt-1">•</span>
+                                        Séparation entre le serveur de vote et le système de dépouillement
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="trace-box selectionner">
+                        <h3 class="text-xl font-semibold text-pink-300 mb-4">Traces et preuves</h3>
+                        <p class="text-gray-300 mb-4">
+                            Voici un extrait de mon implémentation de l'algorithme El Gamal pour le chiffrement des votes :
+                        </p>
+                        <pre class="bg-gray-900 text-gray-200 p-4 rounded-md overflow-x-auto text-sm">
+public class ElGamalEncryption {
+    private BigInteger p; // Grand nombre premier
+    private BigInteger g; // Générateur
+    private BigInteger y; // Clé publique
+    private BigInteger x; // Clé privée (seulement pour le déchiffreur)
+
+    // Génération des paramètres
+    public ElGamalEncryption(int bitLength) {
+        SecureRandom random = new SecureRandom();
+        p = BigInteger.probablePrime(bitLength, random);
+        g = findGenerator(p);
+        x = new BigInteger(bitLength - 1, random);
+        y = g.modPow(x, p);
+    }
+
+    // Chiffrement d'un vote (message = 1 pour Oui, 0 pour Non)
+    public ElGamalCiphertext encrypt(int message) {
+        SecureRandom random = new SecureRandom();
+        BigInteger k = new BigInteger(p.bitLength() - 1, random);
+        BigInteger alpha = g.modPow(k, p);
+        
+        // Conversion du vote en BigInteger
+        BigInteger m = BigInteger.valueOf(message);
+        
+        // Beta = y^k * m mod p
+        BigInteger beta = (y.modPow(k, p).multiply(g.modPow(m, p))).mod(p);
+        
+        return new ElGamalCiphertext(alpha, beta);
+    }
+
+    // Classe interne pour représenter un texte chiffré
+    public static class ElGamalCiphertext {
+        public final BigInteger alpha;
+        public final BigInteger beta;
+        
+        public ElGamalCiphertext(BigInteger alpha, BigInteger beta) {
+            this.alpha = alpha;
+            this.beta = beta;
+        }
+    }
+
+    // Déchiffrement (utilisé uniquement lors du dépouillement)
+    public int decrypt(ElGamalCiphertext ciphertext) {
+        // Calcul de alpha^x
+        BigInteger alphaX = ciphertext.alpha.modPow(x, p);
+        // Calcul de son inverse modulaire
+        BigInteger alphaXInv = alphaX.modInverse(p);
+        // Déchiffrement: m = beta * (alpha^x)^(-1) mod p
+        BigInteger m = ciphertext.beta.multiply(alphaXInv).mod(p);
+        
+        // Pour un vote binaire, on vérifie si m correspond à g^0 ou g^1
+        if (m.equals(BigInteger.ONE)) {
+            return 0; // Non
+        } else if (m.equals(g)) {
+            return 1; // Oui
+        } else {
+            throw new IllegalArgumentException("Vote invalide détecté");
+        }
+    }
+}</pre>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-pink-300 mb-4">Argumentation</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Ce projet m'a permis de développer plusieurs compétences liées à la sélection d'algorithmes adaptés :
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-pink-400 mt-1">•</span>
+                                    Analyse des besoins de sécurité spécifiques au vote électronique
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-pink-400 mt-1">•</span>
+                                    Comparaison de différents algorithmes cryptographiques (RSA vs El Gamal)
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-pink-400 mt-1">•</span>
+                                    Implémentation efficace d'opérations sur les grands nombres
+                                </li>
+                            </ul>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-pink-400 mt-1">•</span>
+                                    Optimisation des performances pour traiter un grand nombre de votes
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-pink-400 mt-1">•</span>
+                                    Vérification mathématique des propriétés de l'algorithme
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-pink-400 mt-1">•</span>
+                                    Tests rigoureux pour garantir la fiabilité du système
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétence 2 : Optimiser une base de données -->
+            <div class="competence-card">
+                <div class="flex flex-wrap items-center gap-4 mb-6">
+                    <span class="tag optimiser-tag">Base de données</span>
+                    <span class="tag optimiser-tag">Sécurité</span>
+                    <span class="tag optimiser-tag">Performance</span>
+                </div>
+                
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-amber-500/20 text-amber-400">
+                        <i class="fas fa-database text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">
+                        <span class="text-amber-400">Niveau 2</span> : Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité
+                    </h2>
+                </div>
+                
+                <p class="text-xl text-gray-300 mb-6 pl-16">
+                    <strong class="text-amber-300">Composante Essentielle :</strong> Assurer la confidentialité des données (intégrité et sécurité)
+                </p>
+                
+                <div class="space-y-8 mt-10">
+                    <div class="bg-slate-800/50 p-8 rounded-lg glassmorphism">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4 flex items-center gap-3">
+                            <i class="fas fa-vote-yea text-lg"></i>
+                            Projet Référendum Électronique
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Pour notre application de vote électronique, j'ai conçu une base de données MySQL qui devait à la fois stocker les votes chiffrés et assurer l'anonymat des votants. La structure a été optimisée pour garantir une séparation stricte entre les identités des électeurs et leurs votes, tout en permettant la vérification qu'un utilisateur n'a voté qu'une seule fois.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <img src="ressources/img/adminView.png" alt="Interface d'administration du référendum" class="rounded-lg shadow-xl w-full h-auto" />
+                            
+                            <div class="bg-slate-900 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-amber-300 mb-3">Défis techniques résolus</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-400 mt-1">•</span>
+                                        Stockage sécurisé des votes sans lien avec l'identité
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-400 mt-1">•</span>
+                                        Prévention du double vote sans compromettre l'anonymat
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-400 mt-1">•</span>
+                                        Mise en place de requêtes optimisées pour les grandes quantités de votes
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-400 mt-1">•</span>
+                                        Intégration avec Hibernate pour une gestion d'ORM sécurisée
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="trace-box optimiser">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Traces et preuves</h3>
+                        <p class="text-gray-300 mb-4">
+                            Voici un extrait du schéma de base de données et des requêtes optimisées pour le système de vote :
+                        </p>
+                        <pre class="bg-gray-900 text-gray-200 p-4 rounded-md overflow-x-auto text-sm">
+-- Schéma de base de données pour le système de vote
+CREATE TABLE Referendum (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titre VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    date_debut DATETIME NOT NULL,
+    date_fin DATETIME NOT NULL,
+    question VARCHAR(500) NOT NULL,
+    est_actif BOOLEAN DEFAULT FALSE,
+    public_key TEXT NOT NULL -- Clé publique pour le chiffrement
+);
+
+CREATE TABLE Utilisateur (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL, -- Hash du mot de passe (jamais en clair)
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    role ENUM('VOTANT', 'ADMIN') NOT NULL DEFAULT 'VOTANT'
+);
+
+-- Table de participation qui stocke simplement qui a voté (sans lien avec le vote)
+CREATE TABLE Participation (
+    utilisateur_id INT NOT NULL,
+    referendum_id INT NOT NULL,
+    date_vote TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (utilisateur_id, referendum_id),
+    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id),
+    FOREIGN KEY (referendum_id) REFERENCES Referendum(id)
+);
+
+-- Table de votes qui ne contient aucun lien avec l'identité du votant
+CREATE TABLE Vote (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    referendum_id INT NOT NULL,
+    vote_chiffre_alpha TEXT NOT NULL, -- Première partie du vote chiffré avec El Gamal
+    vote_chiffre_beta TEXT NOT NULL,  -- Deuxième partie du vote chiffré avec El Gamal
+    date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (referendum_id) REFERENCES Referendum(id)
+);
+
+-- Index pour optimiser les requêtes fréquentes
+CREATE INDEX idx_vote_referendum ON Vote(referendum_id);
+CREATE INDEX idx_referendum_dates ON Referendum(date_debut, date_fin);
+
+-- Vérifier si un utilisateur a déjà voté (optimisé)
+CREATE PROCEDURE a_deja_vote(IN p_utilisateur_id INT, IN p_referendum_id INT, OUT resultat BOOLEAN)
+BEGIN
+    DECLARE compte INT DEFAULT 0;
+    
+    SELECT COUNT(*) INTO compte
+    FROM Participation
+    WHERE utilisateur_id = p_utilisateur_id AND referendum_id = p_referendum_id;
+    
+    IF compte > 0 THEN
+        SET resultat = TRUE;
+    ELSE
+        SET resultat = FALSE;
+    END IF;
+END;</pre>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Argumentation</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            À travers ce projet, j'ai développé plusieurs compétences essentielles en optimisation et sécurisation des bases de données :
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-400 mt-1">•</span>
+                                    Conception d'un schéma qui préserve l'anonymat tout en assurant l'intégrité
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-400 mt-1">•</span>
+                                    Création d'index stratégiques pour optimiser les requêtes fréquentes
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-400 mt-1">•</span>
+                                    Implémentation de procédures stockées pour les opérations critiques
+                                </li>
+                            </ul>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-400 mt-1">•</span>
+                                    Utilisation de requêtes préparées pour éviter les injections SQL
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-400 mt-1">•</span>
+                                    Paramétrage de transactions pour garantir la cohérence des données
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-400 mt-1">•</span>
+                                    Configuration de droits d'accès précis pour différents rôles d'utilisateurs
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mt-4">
+                            Cette compétence d'optimisation et de sécurisation des bases de données a été mise à l'épreuve lors des tests de charge de notre application, qui a pu gérer plusieurs milliers de votes simultanés tout en maintenant des temps de réponse satisfaisants et une intégrité totale des données.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compétence 3 : Appliquer une démarche de suivi de projet -->
+            <div class="competence-card">
+                <div class="flex flex-wrap items-center gap-4 mb-6">
+                    <span class="tag appliquer-tag">Gestion de projet</span>
+                    <span class="tag appliquer-tag">Méthodologie</span>
+                    <span class="tag appliquer-tag">Besoins utilisateurs</span>
+                </div>
+                
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
+                        <i class="fas fa-tasks text-xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">
+                        <span class="text-blue-400">Niveau 2</span> : Appliquer une démarche de suivi de projet en fonction des besoins métiers des clients et des utilisateurs
+                    </h2>
+                </div>
+                
+                <p class="text-xl text-gray-300 mb-6 pl-16">
+                    <strong class="text-blue-300">Composante Essentielle :</strong> Définir et mettre en œuvre une démarche de suivi de projet
+                </p>
+                
+                <div class="space-y-8 mt-10">
+                    <div class="bg-slate-800/50 p-8 rounded-lg glassmorphism">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-4 flex items-center gap-3">
+                            <i class="fas fa-users-cog text-lg"></i>
+                            Organisation du projet Référendum Électronique
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Pour notre SAE sur le référendum électronique, j'ai mis en place une méthodologie de gestion de projet agile adaptée à notre équipe de 4 étudiants. J'ai assuré la coordination entre les différents membres de l'équipe, la planification des sprints et le suivi des objectifs, tout en maintenant une communication constante avec notre encadrant qui jouait le rôle de client.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-slate-900 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-blue-300 mb-3">Organisation de l'équipe</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        Répartition des rôles selon les compétences
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        Planification hebdomadaire avec objectifs clairs
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        Réunions quotidiennes de synchronisation (15 min)
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        Revues de code régulières pour maintenir la qualité
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-900 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-blue-300 mb-3">Résultats obtenus</h4>
+                                <ul class="space-y-2 text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        Livraison du projet dans les délais impartis
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        95% des fonctionnalités prévues implémentées
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        Satisfaction élevée du client (enseignant)
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 mt-1">•</span>
+                                        Système robuste avec moins de bugs que prévu
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="trace-box appliquer">
+                        <h3 class="text-xl font-semibold text-blue-300 mb-4">Traces et preuves</h3>
+                        <p class="text-gray-300 mb-4">
+                            Extrait de notre backlog pour le projet Référendum :
+                        </p>
+                        <div class="bg-gray-900 text-gray-200 p-4 rounded-md overflow-x-auto text-sm">
+                            <p class="font-bold">SPRINT 1 - Architecture et authentification</p>
+                            <ul class="list-disc pl-6 mt-2 mb-4">
+                                <li class="mb-2">En tant qu'utilisateur, je veux pouvoir m'authentifier de manière sécurisée pour accéder au système (Priorité: Élevée, Points: 5, Assigné à: Théo)</li>
+                                <li class="mb-2">En tant qu'administrateur, je souhaite pouvoir gérer les comptes utilisateurs pour maintenir la liste des électeurs (Priorité: Élevée, Points: 8, Assigné à: Marie)</li>
+                                <li class="mb-2">En tant que développeur, je dois mettre en place l'architecture client-serveur avec sockets pour permettre la communication sécurisée (Priorité: Élevée, Points: 13, Assigné à: Lucas)</li>
+                            </ul>
+
+                            <p class="font-bold">SPRINT 2 - Gestion des référendums</p>
+                            <ul class="list-disc pl-6 mt-2 mb-4">
+                                <li class="mb-2">En tant qu'administrateur, je veux créer et configurer un nouveau référendum pour proposer un vote (Priorité: Élevée, Points: 8, Assigné à: Marie)</li>
+                                <li class="mb-2">En tant qu'administrateur, je souhaite paramétrer les dates de début et de fin d'un référendum pour contrôler la période de vote (Priorité: Moyenne, Points: 5, Assigné à: Lucas)</li>
+                                <li class="mb-2">En tant qu'utilisateur, je veux voir la liste des référendums disponibles pour participer aux votes (Priorité: Élevée, Points: 3, Assigné à: Théo)</li>
+                            </ul>
+
+                            <p class="font-bold">SPRINT 3 - Système de vote</p>
+                            <ul class="list-disc pl-6 mt-2">
+                                <li class="mb-2">En tant qu'utilisateur, je souhaite voter de manière anonyme à un référendum actif pour exprimer mon opinion (Priorité: Élevée, Points: 13, Assigné à: Théo et Lucas)</li>
+                                <li class="mb-2">En tant que système, je dois chiffrer les votes avec El Gamal pour garantir l'anonymat et l'intégrité (Priorité: Élevée, Points: 21, Assigné à: Théo)</li>
+                                <li class="mb-2">En tant qu'administrateur, je veux pouvoir déclencher le dépouillement à la fin du vote pour obtenir les résultats (Priorité: Moyenne, Points: 8, Assigné à: Marie et Lucas)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-300 mb-4">Argumentation</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Ce projet m'a permis de développer de solides compétences en gestion de projet et en suivi des besoins utilisateurs :
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 mt-1">•</span>
+                                    Analyse et formalisation des besoins fonctionnels et non-fonctionnels
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 mt-1">•</span>
+                                    Priorisation des fonctionnalités selon leur valeur métier
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 mt-1">•</span>
+                                    Découpage du travail en tâches gérables et estimation de l'effort
+                                </li>
+                            </ul>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 mt-1">•</span>
+                                    Organisation d'une équipe avec des compétences complémentaires
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 mt-1">•</span>
+                                    Suivi de l'avancement avec des outils adaptés (GitHub, Trello)
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 mt-1">•</span>
+                                    Communication proactive avec le client et adaptation aux changements
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed mt-4">
+                            Ces compétences en gestion de projet sont particulièrement précieuses dans le parcours DACS, où la coordination entre aspects techniques, sécurité et expérience utilisateur est essentielle. La méthodologie agile que j'ai mise en place nous a permis de nous adapter rapidement aux retours de notre enseignant et d'améliorer continuellement notre solution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-gray-400 mb-4 md:mb-0">
+            © 2024 - Théo Maurin
+        </div>
+        <div class="flex space-x-6">
+            <a href="https://www.linkedin.com/in/théo-maurin" class="text-gray-400 hover:text-blue-400 transition-all duration-300">
+                <span class="sr-only">LinkedIn</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Animation au défilement
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialiser ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animation des cartes
+        gsap.utils.toArray('.competence-card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+        
+        // Animation des titres
+        gsap.utils.toArray('.competence-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                x: -30,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+        
+        // Animation des boîtes de traces
+        gsap.utils.toArray('.trace-box').forEach(box => {
+            gsap.from(box, {
+                scrollTrigger: {
+                    trigger: box,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                scale: 0.95,
+                duration: 0.7,
+                ease: "back.out(1.2)"
+            });
+        });
+        
+        // Animation des sections glassmorphism
+        gsap.utils.toArray('.glassmorphism').forEach(glass => {
+            gsap.from(glass, {
+                scrollTrigger: {
+                    trigger: glass,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

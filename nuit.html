@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuit de l'Info 2024 - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Dark Gray */
+            color: #E5E7EB; /* Light Gray */
+        }
         .hero-gradient {
-            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            background: linear-gradient(145deg, #4F46E5, #7C3AED); /* Indigo Gradient */
+            box-shadow: 10px 10px 20px #0A0E14,
+                        -10px -10px 20px #20324A;
         }
         .nav-blur {
             backdrop-filter: blur(10px);
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(17, 24, 39, 0.7); /* Dark Gray with Transparency */
         }
         .timeline-dot::before {
             content: '';
@@ -20,8 +29,8 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #059669;
-            border: 4px solid #064e3b;
+            background: #6366F1; /* Indigo-500 */
+            border: 4px solid #4F46E5; /* Indigo-700 */
         }
         .timeline-line::after {
             content: '';
@@ -30,27 +39,40 @@
             top: 25px;
             bottom: -15px;
             width: 4px;
-            background: #064e3b;
+            background: #4F46E5; /* Indigo-700 */
         }
         .feature-card {
             transition: all 0.3s ease;
         }
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(5, 150, 105, 0.2);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2); /* Indigo-500 with Transparency */
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7.5px);
+            -webkit-backdrop-filter: blur(7.5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
+
 <!-- Navigation -->
 <nav class="fixed w-full z-50 nav-blur">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center h-20 px-6">
-            <a href="index.html" class="text-2xl font-bold">
-                <span class="text-emerald-400">{</span> TM <span class="text-emerald-400">}</span>
-            </a>
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-300 hover:text-emerald-400 transition-colors">RETOUR</a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex-shrink-0">
+                <a href="index.html" class="text-xl font-bold text-indigo-400">
+                    <i class="fas fa-code"></i> Théo Maurin
+                </a>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Retour</a>
+                </div>
             </div>
         </div>
     </div>
@@ -66,14 +88,14 @@
                     <p class="text-xl text-gray-300">Mon deuxième challenge de développement web en équipe. La Nuit de l'Info est bien plus qu'une compétition : c'est une nuit de défis où chaque seconde compte, et où le travail d'équipe fait toute la différence.</p>
                 </div>
                 <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">HTML5</span>
-                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">CSS3</span>
-                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">JavaScript</span>
-                    <span class="px-4 py-2 bg-emerald-800/50 rounded-full text-emerald-300 border border-emerald-700">Tailwind CSS</span>
+                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">HTML5</span>
+                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">CSS3</span>
+                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">JavaScript</span>
+                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">Tailwind CSS</span>
                 </div>
                 <div>
                     <a href="https://raflpb.github.io/nuitInfo/site/src/" target="_blank"
-                       class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 rounded-lg hover:bg-emerald-700 transition-all">
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-all">
                         Voir le projet
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -83,7 +105,7 @@
             </div>
             <div class="relative">
                 <img src="ressources/img/SiteNuit.png" alt="Nuit de l'Info Interface" class="rounded-lg shadow-2xl" />
-                <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg opacity-20"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg opacity-20"></div>
             </div>
         </div>
     </div>
@@ -94,7 +116,7 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="space-y-8">
-                <div class="bg-slate-800 p-8 rounded-xl">
+                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
                     <h2 class="text-3xl font-bold mb-6">L'événement</h2>
                     <div class="space-y-4 text-gray-300">
                         <p>La Nuit de l'Info est une compétition nationale qui réunit étudiants, enseignants et entreprises pendant une nuit complète. C'est un défi de développement web de 16h39 à 8h04 le lendemain matin.</p>
@@ -103,15 +125,15 @@
                             <h3 class="text-xl font-semibold mb-3">Format unique</h3>
                             <ul class="space-y-2">
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     16 heures de développement non-stop
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Travail en équipe intensif
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Défis multiples à relever
                                 </li>
                             </ul>
@@ -119,7 +141,7 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-800 p-8 rounded-xl">
+                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
                     <h2 class="text-3xl font-bold mb-6">Le Sujet</h2>
                     <div class="space-y-4 text-gray-300">
                         <p>Cette année, le défi principal portait sur la thématique : "Et si l’océan était un corps humain ?". Notre équipe a dû concevoir une solution web innovante pour illustrer les parallèles entre les systèmes humains et les systèmes océaniques.</p>
@@ -130,58 +152,58 @@
             </div>
 
             <div class="space-y-8">
-                <div class="bg-slate-800 p-8 rounded-xl">
+                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
                     <h2 class="text-3xl font-bold mb-6">Compétences Développées</h2>
                     <div class="space-y-6">
                         <div class="p-4 bg-slate-900 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Travail d'Équipe</h3>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-400">Travail d'Équipe</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Collaboration sous pression
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Communication efficace
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Gestion du temps
                                 </li>
                             </ul>
                         </div>
 
                         <div class="p-4 bg-slate-900 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Développement Web</h3>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-400">Développement Web</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Maîtrise de Tailwind CSS
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     JavaScript moderne
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Design responsive
                                 </li>
                             </ul>
                         </div>
 
                         <div class="p-4 bg-slate-900 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-3 text-emerald-400">Gestion de Projet</h3>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-400">Gestion de Projet</h3>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Organisation agile
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Planification rapide
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="text-emerald-400">•</span>
+                                    <span class="text-indigo-400">•</span>
                                     Prise de décision
                                 </li>
                             </ul>
@@ -189,7 +211,7 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-800 p-8 rounded-xl">
+                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
                     <h2 class="text-3xl font-bold mb-6">Expérience Acquise</h2>
                     <div class="space-y-4 text-gray-300">
                         <p>Cette deuxième participation m'a permis de consolider mes compétences en développement web front-end et en travail d'équipe. L'expérience de l'année précédente a été précieuse pour mieux gérer le temps et organiser le travail.</p>
@@ -208,29 +230,29 @@
         <div class="relative max-w-3xl mx-auto">
             <div class="ml-12">
                 <div class="mb-16 relative timeline-dot timeline-line">
-                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">16h39 - Lancement</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">16h39 - Lancement</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
                         <p class="text-gray-300">Découverte du sujet et brainstorming en équipe. Organisation des tâches et définition de la stratégie.</p>
                     </div>
                 </div>
 
                 <div class="mb-16 relative timeline-dot timeline-line">
-                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">20h00 - Développement</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">20h00 - Développement</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
                         <p class="text-gray-300">Mise en place de la structure HTML, intégration avec Tailwind CSS et développement des fonctionnalités JavaScript.</p>
                     </div>
                 </div>
 
                 <div class="mb-16 relative timeline-dot timeline-line">
-                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">02h00 - Phase Finale</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">02h00 - Phase Finale</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
                         <p class="text-gray-300">Finalisation des fonctionnalités, tests et optimisations des performances.</p>
                     </div>
                 </div>
 
                 <div class="relative timeline-dot">
-                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">08h04 - Rendu</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">08h04 - Rendu</h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
                         <p class="text-gray-300">Déploiement du projet et documentation finale.</p>
                     </div>
                 </div>
@@ -242,7 +264,7 @@
 <!-- Retour -->
 <section class="py-12">
     <div class="max-w-7xl mx-auto px-6 text-center">
-        <a href="index.html" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors">
+        <a href="index.html" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
@@ -250,5 +272,6 @@
         </a>
     </div>
 </section>
+
 </body>
 </html>
