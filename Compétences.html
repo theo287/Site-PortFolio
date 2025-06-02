@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétences de niveau 2 - BUT Informatique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f5ff',
+                            100: '#e0ebfe',
+                            200: '#c0d3fc',
+                            300: '#92b6f9',
+                            400: '#5f90f5',
+                            500: '#3667ed',
+                            600: '#264be0',
+                            700: '#1f3ccc',
+                            800: '#1e32a5',
+                            900: '#1c2e82',
+                            950: '#151c4d'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #3667ed 0%, #6d56f6 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3667ed 0%, #6d56f6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-gradient {
+            background: linear-gradient(135deg, #3667ed 0%, #6d56f6 100%);
+        }
+
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans">
+<!-- Hero Section -->
+<header class="relative overflow-hidden">
+    <div class="absolute inset-0 gradient-primary opacity-10"></div>
+    <div class="absolute top-0 left-0 w-full h-full">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(54,103,237,0.2),transparent_30%)]"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-950 to-transparent"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                <span class="gradient-text">Compétences de niveau 2</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-medium text-slate-100 mb-6">BUT Informatique</h2>
+            <p class="text-lg text-slate-400 mb-12">
+                Découvrez les six compétences essentielles du parcours BUT Informatique niveau 2,
+                qui préparent les futurs professionnels aux défis technologiques actuels.
+            </p>
+            <a href="#competences" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-all duration-300 border border-white/20 hover:border-white/40">
+                <span>Explorer les compétences</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Competences Section -->
+<section id="competences" class="py-20 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(109,86,246,0.15),transparent_40%)]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Compétence 1: Réaliser -->
+            <div class="bg-slate-900/60 rounded-2xl overflow-hidden shadow-xl shadow-primary-950/20 border border-slate-800 card-hover transform-gpu">
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="icon-gradient flex items-center justify-center w-12 h-12 rounded-xl text-white shadow-lg shadow-primary-500/30">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Réaliser</h3>
+                    </div>
+                    <span class="bg-slate-800 text-primary-300 text-xs font-medium px-3 py-1 rounded-full">Niveau 2</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-medium text-white mb-4">Partir des exigences et aller jusqu'à une application complète</h4>
+                    <p class="text-slate-400 mb-6">
+                        Cette compétence englobe l'ensemble du cycle de développement, depuis l'analyse des besoins
+                        jusqu'à la livraison d'une application fonctionnelle et documentée.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Analyser un besoin utilisateur de manière approfondie</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Rédiger un cahier des charges technique</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Concevoir une architecture logicielle adaptée</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Développer l'application avec les bonnes pratiques</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Tester et documenter la solution complète</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Compétence 2: Optimiser -->
+            <div class="bg-slate-900/60 rounded-2xl overflow-hidden shadow-xl shadow-primary-950/20 border border-slate-800 card-hover transform-gpu">
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="icon-gradient flex items-center justify-center w-12 h-12 rounded-xl text-white shadow-lg shadow-primary-500/30">
+                            <i class="fas fa-microchip text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Optimiser</h3>
+                    </div>
+                    <span class="bg-slate-800 text-primary-300 text-xs font-medium px-3 py-1 rounded-full">Niveau 2</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-medium text-white mb-4">Sélectionner les algorithmes adéquats pour répondre à un problème donné</h4>
+                    <p class="text-slate-400 mb-6">
+                        Cette compétence concerne la maîtrise des différentes classes d'algorithmes et la capacité
+                        à identifier la solution optimale pour un contexte spécifique.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Comprendre les classes d'algorithmes (tri, recherche, graphes)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Évaluer la complexité temporelle et spatiale</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Choisir l'algorithme le plus adapté aux contraintes</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Implémenter et optimiser des solutions algorithmiques</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Analyser les performances en situation réelle</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Compétence 3: Administrer -->
+            <div class="bg-slate-900/60 rounded-2xl overflow-hidden shadow-xl shadow-primary-950/20 border border-slate-800 card-hover transform-gpu">
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="icon-gradient flex items-center justify-center w-12 h-12 rounded-xl text-white shadow-lg shadow-primary-500/30">
+                            <i class="fas fa-server text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Administrer</h3>
+                    </div>
+                    <span class="bg-slate-800 text-primary-300 text-xs font-medium px-3 py-1 rounded-full">Niveau 2</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-medium text-white mb-4">Déployer des services dans une architecture réseau</h4>
+                    <p class="text-slate-400 mb-6">
+                        Cette compétence couvre l'installation, la configuration et la maintenance de services
+                        informatiques dans un environnement réseau sécurisé.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Installer et configurer des services (web, DNS, DHCP)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Gérer la sécurité réseau (pare-feu, protocoles, ports)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Mettre en place des systèmes de supervision</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Maintenir la disponibilité et la fiabilité des services</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Créer et gérer des environnements virtualisés</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Compétence 4: Gérer -->
+            <div class="bg-slate-900/60 rounded-2xl overflow-hidden shadow-xl shadow-primary-950/20 border border-slate-800 card-hover transform-gpu">
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="icon-gradient flex items-center justify-center w-12 h-12 rounded-xl text-white shadow-lg shadow-primary-500/30">
+                            <i class="fas fa-database text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Gérer</h3>
+                    </div>
+                    <span class="bg-slate-800 text-primary-300 text-xs font-medium px-3 py-1 rounded-full">Niveau 2</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-medium text-white mb-4">Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité</h4>
+                    <p class="text-slate-400 mb-6">
+                        Cette compétence concerne l'optimisation des performances des bases de données,
+                        leur intégration dans les applications et la mise en œuvre de mesures de sécurité.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Optimiser les schémas et requêtes (indexation, normalisation)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Intégrer des bases de données via API ou ORM</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Sécuriser les données (chiffrement, authentification)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Prévenir les vulnérabilités (injections SQL, XSS)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Gérer efficacement les transactions et la concurrence</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Compétence 5: Conduire -->
+            <div class="bg-slate-900/60 rounded-2xl overflow-hidden shadow-xl shadow-primary-950/20 border border-slate-800 card-hover transform-gpu">
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="icon-gradient flex items-center justify-center w-12 h-12 rounded-xl text-white shadow-lg shadow-primary-500/30">
+                            <i class="fas fa-tasks text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Conduire</h3>
+                    </div>
+                    <span class="bg-slate-800 text-primary-300 text-xs font-medium px-3 py-1 rounded-full">Niveau 2</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-medium text-white mb-4">Appliquer une démarche de suivi de projet en fonction des besoins métiers</h4>
+                    <p class="text-slate-400 mb-6">
+                        Cette compétence englobe la planification, le suivi et la communication autour d'un projet
+                        informatique en s'adaptant aux besoins des clients et utilisateurs.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Analyser les besoins métiers des utilisateurs</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Planifier les étapes d'un projet (jalons, sprints)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Utiliser des outils de gestion de projet (Trello, Gantt)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Suivre les indicateurs d'avancement (qualité, délais, budget)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Communiquer efficacement avec les parties prenantes</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Compétence 6: Collaborer -->
+            <div class="bg-slate-900/60 rounded-2xl overflow-hidden shadow-xl shadow-primary-950/20 border border-slate-800 card-hover transform-gpu">
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="icon-gradient flex items-center justify-center w-12 h-12 rounded-xl text-white shadow-lg shadow-primary-500/30">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white">Collaborer</h3>
+                    </div>
+                    <span class="bg-slate-800 text-primary-300 text-xs font-medium px-3 py-1 rounded-full">Niveau 2</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-lg font-medium text-white mb-4">Situer son rôle et ses missions au sein d'une équipe informatique</h4>
+                    <p class="text-slate-400 mb-6">
+                        Cette compétence concerne l'intégration dans une équipe informatique,
+                        la communication professionnelle et la contribution à un objectif commun.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Comprendre sa place dans une équipe informatique</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Interagir avec différents profils (développeurs, chefs de projet)</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Communiquer de manière claire et professionnelle</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Partager les connaissances et les bonnes pratiques</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-1.5 h-1.5 rounded-full bg-primary-400"></div>
+                            </div>
+                            <p class="ml-3 text-slate-300">Contribuer activement à la réussite collective</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-20 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(54,103,237,0.15),transparent_50%)]"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div class="bg-glass rounded-3xl p-8 md:p-12 shadow-xl shadow-primary-950/20">
+            <h2 class="text-3xl font-bold text-white mb-6">Prêt à développer ces compétences ?</h2>
+            <p class="text-lg text-slate-300 mb-8">
+                Rejoignez le Bachelor Universitaire de Technologie en Informatique pour acquérir une formation
+                complète et professionnalisante, adaptée aux besoins actuels des entreprises.
+            </p>
+            <a href="#" class="inline-flex items-center gap-2 gradient-primary text-white px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 hover:scale-105 transform-gpu">
+                <span class="font-medium">Découvrir la formation</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-950 border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="text-2xl font-bold text-white">
+                    <span class="text-primary-400">{</span> BUT Informatique <span class="text-primary-400">}</span>
+                </div>
+                <p class="text-slate-400 mt-2">
+                    Formation professionnalisante de niveau Bac+3
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-6 md:gap-12">
+                <a href="#" class="text-slate-300 hover:text-white transition-colors">À propos</a>
+                <a href="#" class="text-slate-300 hover:text-white transition-colors">Programme</a>
+                <a href="#" class="text-slate-300 hover:text-white transition-colors">Admission</a>
+                <a href="#" class="text-slate-300 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-slate-400 mb-4 md:mb-0">
+                © 2025 - Bachelor Universitaire de Technologie en Informatique
+            </p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

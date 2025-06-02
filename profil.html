@@ -4,33 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Théo Maurin - À Propos</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #111827; /* Dark Gray */
-            color: #E5E7EB; /* Light Gray */
-        }
         .hero-gradient {
-            background: linear-gradient(145deg, #4F46E5, #7C3AED); /* Indigo Gradient */
-            box-shadow: 10px 10px 20px #0A0E14,
-                        -10px -10px 20px #20324A;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
         }
+
         .nav-blur {
             backdrop-filter: blur(10px);
-            background: rgba(17, 24, 39, 0.7); /* Dark Gray with Transparency */
+            background: rgba(15, 23, 42, 0.8);
         }
+
         .gradient-text {
             background: linear-gradient(90deg, #818cf8 0%, #c084fc 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 3px;
+            transform-origin: left;
+            animation: fillUp 1.5s ease-out forwards;
+        }
+
+        @keyframes fillUp {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .floating-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
+<!-- Éléments décoratifs flottants -->
+<div class="floating-decoration" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+<div class="floating-decoration" style="top: 60%; right: 10%; animation-delay: 3s;"></div>
+
 <!-- Navigation -->
 <nav class="fixed w-full z-50 nav-blur">
     <div class="max-w-7xl mx-auto">
@@ -46,7 +80,7 @@
 </nav>
 
 <!-- Section Profil -->
-<section class="pt-32 pb-16">
+<section class="pt-32 pb-16 relative">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
@@ -54,63 +88,85 @@
                     <span class="gradient-text">À propos</span>
                 </h1>
                 <div class="space-y-6 text-gray-300">
-                    <p class="text-xl">
-                        Étudiant en deuxième année de BUT Informatique à l'IUT de Montpellier, je suis passionné par le développement logiciel et la cybersécurité. Je suis particulièrement attiré par la conception de systèmes robustes et sécurisés.
+                    <p>
+                        Je m'appelle Théo Maurin, étudiant en deuxième année de BUT Informatique à l'IUT de Montpellier, parcours <strong>DACS</strong> (Déploiement d'Applications Communicantes et Sécurisées).
                     </p>
                     <p>
-                        Mon parcours en informatique m'a permis de développer une solide expertise en programmation, allant du back-end au front-end. Je suis toujours à la recherche de nouveaux défis et opportunités pour approfondir mes compétences et contribuer à des projets innovants.
+                        Ce que j'aime dans l'informatique, ce n'est pas seulement écrire du code, mais construire des systèmes fiables, sécurisés, et utiles. J'ai découvert cette passion en travaillant sur des projets concrets comme un système de vote électronique sécurisé.
                     </p>
                     <p>
-                        Après mon BUT, j'envisage de poursuivre mes études en Master spécialisé en cybersécurité, afin de devenir un expert dans la protection des systèmes d'information. Je suis également ouvert à l'idée d'intégrer le monde professionnel, si une opportunité se présente, pour mettre en pratique mes compétences et acquérir une expérience concrète.
+                        Je suis particulièrement attiré par la sécurité des systèmes, car elle mêle rigueur, logique et anticipation. Comprendre comment les données peuvent être protégées me pousse à aller plus loin.
+                    </p>
+                    <p>
+                        Je suis quelqu'un de rigoureux, curieux, et persévérant. J'aime travailler en équipe, confronter mes idées, documenter proprement, et améliorer ce qui peut l'être.
                     </p>
                 </div>
+
                 <div class="mt-12">
                     <h2 class="text-2xl font-bold mb-6">Parcours Académique</h2>
-                    <div class="space-y-6">
-                        <div class="bg-slate-800 p-6 rounded-lg">
-                            <h3 class="text-lg font-semibold text-indigo-400">BUT Informatique</h3>
-                            <p class="text-gray-300">IUT de Montpellier • 2022 - Présent</p>
-                            <ul class="mt-4 space-y-2 text-gray-300">
-                                <li class="flex items-start gap-2">
-                                    <span class="text-indigo-400">•</span>
-                                    Spécialisation en développement logiciel
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-indigo-400">•</span>
-                                    Projets pratiques en équipe
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="text-indigo-400">•</span>
-                                    Formation complète en informatique
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="bg-slate-800 p-6 rounded-lg card-hover">
+                        <h3 class="text-lg font-semibold text-indigo-400">BUT Informatique</h3>
+                        <p class="text-gray-300">IUT de Montpellier • 2022 - Présent</p>
+                        <ul class="mt-4 space-y-2 text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Spécialisation en développement logiciel et cybersécurité
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Projets pratiques en équipe
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Conception d'applications sécurisées et distribuées
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="space-y-8">
-                <div class="bg-slate-800 p-8 rounded-lg">
+                <div class="bg-slate-800 p-8 rounded-lg card-hover">
                     <h2 class="text-2xl font-bold mb-6">Compétences Techniques</h2>
                     <div class="space-y-6">
                         <div>
                             <h3 class="text-lg font-semibold text-indigo-400 mb-4">Langages de Programmation</h3>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    Java (POO)
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Java (POO)</span>
+                                        <span class="text-indigo-400">85%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-1.5">
+                                        <div class="skill-bar" style="width: 85%;"></div>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    C
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>C</span>
+                                        <span class="text-indigo-400">70%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-1.5">
+                                        <div class="skill-bar" style="width: 70%; animation-delay: 0.2s;"></div>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    PHP
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>PHP</span>
+                                        <span class="text-indigo-400">75%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-1.5">
+                                        <div class="skill-bar" style="width: 75%; animation-delay: 0.4s;"></div>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    SQL
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>SQL</span>
+                                        <span class="text-indigo-400">80%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-700 rounded-full h-1.5">
+                                        <div class="skill-bar" style="width: 80%; animation-delay: 0.6s;"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -118,52 +174,38 @@
                         <div>
                             <h3 class="text-lg font-semibold text-indigo-400 mb-4">Technologies</h3>
                             <div class="grid grid-cols-2 gap-4">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    JavaFX
+                                <div class="bg-slate-700 p-3 rounded-lg text-center card-hover">
+                                    <span>JavaFX</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    MySQL
+                                <div class="bg-slate-700 p-3 rounded-lg text-center card-hover">
+                                    <span>MySQL</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    Git
+                                <div class="bg-slate-700 p-3 rounded-lg text-center card-hover">
+                                    <span>Git</span>
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-indigo-400 rounded-full"></span>
-                                    HTML/CSS
+                                <div class="bg-slate-700 p-3 rounded-lg text-center card-hover">
+                                    <span>HTML/CSS</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 p-8 rounded-lg">
+                <div class="bg-slate-800 p-8 rounded-lg card-hover">
                     <h2 class="text-2xl font-bold mb-6">Objectifs Professionnels</h2>
                     <p class="text-gray-300 mb-4">
-                        Mon objectif est de devenir un développeur complet, capable de gérer des projets complexes et d'innover dans le domaine du développement logiciel. Je souhaite particulièrement me spécialiser dans :
+                        Je souhaite continuer vers un <strong>Master en cybersécurité</strong> ou une école d'ingénieurs spécialisée, avec un vrai intérêt pour les enjeux de protection des données.
                     </p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-start gap-2">
-                            <span class="text-indigo-400">•</span>
-                            Le développement d'applications sécurisées
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-indigo-400">•</span>
-                            La conception de systèmes distribués
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-indigo-400">•</span>
-                            L'architecture logicielle
-                        </li>
-                    </ul>
+                    <p class="text-gray-300">
+                        Je suis également ouvert à des opportunités professionnelles, notamment des stages dans des domaines comme la cybersécurité et le développement d'applications critiques.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Nouvelle section pour le CV -->
+
+<!-- Section CV -->
 <section class="py-16 bg-slate-800">
     <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-3xl font-bold mb-8 text-center">
@@ -173,7 +215,7 @@
         <!-- Bouton de téléchargement -->
         <div class="flex justify-center mb-8">
             <a href="ressources/img/Maurin-CV-Q3.pdf"
-               class="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors duration-300 shadow-md"
+               class="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 card-hover"
                target="_blank">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -183,17 +225,16 @@
         </div>
 
         <!-- Aperçu du PDF -->
-        <div class="w-full aspect-[1/1.4] rounded-lg bg-white shadow-xl overflow-hidden">
+        <div class="w-full aspect-[1/1.4] rounded-lg bg-transparent">
             <iframe
                     src="ressources/img/Maurin-CV-Q3.pdf"
-                    class="w-full h-full"
-                    style="border: 0; display: block; min-height: 600px;"
+                    class="w-full h-full rounded-lg"
+                    style="border: 0; display: block;"
                     frameborder="0"
             ></iframe>
         </div>
     </div>
 </section>
-
 
 <!-- Footer -->
 <footer class="py-12 bg-slate-800">

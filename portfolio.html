@@ -19,7 +19,7 @@
             position: relative;
             overflow-x: hidden;
         }
-        
+
         /* Effet de "glow" bleu en arrière-plan */
         body::before {
             content: '';
@@ -32,7 +32,7 @@
             filter: blur(70px);
             z-index: -1;
         }
-        
+
         /* Deuxième "glow" pour ajouter du dynamisme */
         body::after {
             content: '';
@@ -45,7 +45,7 @@
             filter: blur(70px);
             z-index: -1;
         }
-        
+
         /* Animation subtile des gradients en arrière-plan */
         @keyframes gradientShift {
             0% {
@@ -58,14 +58,14 @@
                 background-position: 0% 50%;
             }
         }
-        
+
         .hero-gradient {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(25, 36, 70, 0.7) 100%);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -77,7 +77,7 @@
             animation: flash 8s infinite;
             z-index: 0;
         }
-        
+
         @keyframes flash {
             0% {
                 transform: translateX(-100%);
@@ -86,7 +86,7 @@
                 transform: translateX(100%);
             }
         }
-        
+
         .nav-blur {
             backdrop-filter: blur(10px);
             background: rgba(17, 24, 39, 0.7); /* Dark Gray with Transparency */
@@ -221,7 +221,7 @@
                     <span class="tag selectionner-tag">Optimisation</span>
                     <span class="tag selectionner-tag">Cryptographie</span>
                 </div>
-                
+
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-12 h-12 flex items-center justify-center rounded-full bg-pink-500/20 text-pink-400">
                         <i class="fas fa-code text-xl"></i>
@@ -230,11 +230,18 @@
                         <span class="text-pink-400">Niveau 2</span> : Sélectionner les algorithmes adéquats pour répondre à un problème donné
                     </h2>
                 </div>
-                
+
                 <p class="text-xl text-gray-300 mb-6 pl-16">
-                    <strong class="text-pink-300">Composante Essentielle :</strong> Utiliser des techniques algorithmiques adaptées pour des problèmes complexes
+                    <strong class="text-pink-300">AC 2 :</strong> Utiliser des techniques algorithmiques adaptées pour des problèmes complexes
+                    <br />
+                    <strong class="text-pink-300">en s’appuyant sur</strong> <strong>CE2.03</strong> : des schémas de raisonnement
                 </p>
-                
+
+                <p class="text-gray-300 mb-6 pl-16">
+                    Dans ce projet, j'ai mobilisé des raisonnements mathématiques et logiques rigoureux pour sélectionner et implémenter l'algorithme El Gamal, garantissant la sécurité et la fiabilité d’un système de vote électronique. Cette mise en situation complexe illustre pleinement la maîtrise de l’apprentissage critique visé.
+                </p>
+
+
                 <div class="space-y-8 mt-10">
                     <div class="bg-slate-800/50 p-8 rounded-lg glassmorphism">
                         <h3 class="text-xl font-semibold text-pink-300 mb-4 flex items-center gap-3">
@@ -244,7 +251,7 @@
                         <p class="text-gray-300 leading-relaxed mb-6">
                             Dans le cadre de notre SAE "Systèmes distribués", j'ai dû implémenter l'algorithme de chiffrement El Gamal pour sécuriser un système de vote électronique. Ce choix algorithmique était crucial car il devait garantir à la fois la confidentialité des votes et la possibilité de vérifier l'intégrité du processus électoral sans compromettre l'anonymat des votants.
                         </p>
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="bg-slate-900 p-6 rounded-lg">
                                 <h4 class="text-lg font-semibold text-pink-300 mb-3">Contraintes techniques</h4>
@@ -290,7 +297,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="trace-box selectionner">
                         <h3 class="text-xl font-semibold text-pink-300 mb-4">Traces et preuves</h3>
                         <p class="text-gray-300 mb-4">
@@ -317,13 +324,13 @@ public class ElGamalEncryption {
         SecureRandom random = new SecureRandom();
         BigInteger k = new BigInteger(p.bitLength() - 1, random);
         BigInteger alpha = g.modPow(k, p);
-        
+
         // Conversion du vote en BigInteger
         BigInteger m = BigInteger.valueOf(message);
-        
+
         // Beta = y^k * m mod p
         BigInteger beta = (y.modPow(k, p).multiply(g.modPow(m, p))).mod(p);
-        
+
         return new ElGamalCiphertext(alpha, beta);
     }
 
@@ -331,7 +338,7 @@ public class ElGamalEncryption {
     public static class ElGamalCiphertext {
         public final BigInteger alpha;
         public final BigInteger beta;
-        
+
         public ElGamalCiphertext(BigInteger alpha, BigInteger beta) {
             this.alpha = alpha;
             this.beta = beta;
@@ -346,7 +353,7 @@ public class ElGamalEncryption {
         BigInteger alphaXInv = alphaX.modInverse(p);
         // Déchiffrement: m = beta * (alpha^x)^(-1) mod p
         BigInteger m = ciphertext.beta.multiply(alphaXInv).mod(p);
-        
+
         // Pour un vote binaire, on vérifie si m correspond à g^0 ou g^1
         if (m.equals(BigInteger.ONE)) {
             return 0; // Non
@@ -358,7 +365,7 @@ public class ElGamalEncryption {
     }
 }</pre>
                     </div>
-                    
+
                     <div>
                         <h3 class="text-xl font-semibold text-pink-300 mb-4">Argumentation</h3>
                         <p class="text-gray-300 leading-relaxed mb-4">
@@ -405,7 +412,7 @@ public class ElGamalEncryption {
                     <span class="tag optimiser-tag">Sécurité</span>
                     <span class="tag optimiser-tag">Performance</span>
                 </div>
-                
+
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-12 h-12 flex items-center justify-center rounded-full bg-amber-500/20 text-amber-400">
                         <i class="fas fa-database text-xl"></i>
@@ -414,11 +421,18 @@ public class ElGamalEncryption {
                         <span class="text-amber-400">Niveau 2</span> : Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité
                     </h2>
                 </div>
-                
+
                 <p class="text-xl text-gray-300 mb-6 pl-16">
-                    <strong class="text-amber-300">Composante Essentielle :</strong> Assurer la confidentialité des données (intégrité et sécurité)
+                    <strong class="text-amber-300">AC 2 :</strong> Assurer la confidentialité des données (intégrité et sécurité)
+                    <br />
+                    <strong class="text-amber-300">en s’appuyant sur</strong> <strong>CE4.01</strong> : en respectant les réglementations sur le respect de la vie privée et la protection des données personnelles
                 </p>
-                
+
+                <p class="text-gray-300 mb-6 pl-16">
+                    J’ai travaillé cette compétence en concevant une base de données où la séparation entre les identités des électeurs et les votes est totale, tout en respectant les contraintes de confidentialité imposées par la réglementation (RGPD). Ce projet illustre parfaitement la mise en œuvre concrète de cette compétence, tant sur le plan technique que légal.
+                </p>
+
+
                 <div class="space-y-8 mt-10">
                     <div class="bg-slate-800/50 p-8 rounded-lg glassmorphism">
                         <h3 class="text-xl font-semibold text-amber-300 mb-4 flex items-center gap-3">
@@ -428,10 +442,10 @@ public class ElGamalEncryption {
                         <p class="text-gray-300 leading-relaxed mb-6">
                             Pour notre application de vote électronique, j'ai conçu une base de données MySQL qui devait à la fois stocker les votes chiffrés et assurer l'anonymat des votants. La structure a été optimisée pour garantir une séparation stricte entre les identités des électeurs et leurs votes, tout en permettant la vérification qu'un utilisateur n'a voté qu'une seule fois.
                         </p>
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <img src="ressources/img/adminView.png" alt="Interface d'administration du référendum" class="rounded-lg shadow-xl w-full h-auto" />
-                            
+
                             <div class="bg-slate-900 p-6 rounded-lg">
                                 <h4 class="text-lg font-semibold text-amber-300 mb-3">Défis techniques résolus</h4>
                                 <ul class="space-y-2 text-gray-300">
@@ -455,7 +469,7 @@ public class ElGamalEncryption {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="trace-box optimiser">
                         <h3 class="text-xl font-semibold text-amber-300 mb-4">Traces et preuves</h3>
                         <p class="text-gray-300 mb-4">
@@ -511,11 +525,11 @@ CREATE INDEX idx_referendum_dates ON Referendum(date_debut, date_fin);
 CREATE PROCEDURE a_deja_vote(IN p_utilisateur_id INT, IN p_referendum_id INT, OUT resultat BOOLEAN)
 BEGIN
     DECLARE compte INT DEFAULT 0;
-    
+
     SELECT COUNT(*) INTO compte
     FROM Participation
     WHERE utilisateur_id = p_utilisateur_id AND referendum_id = p_referendum_id;
-    
+
     IF compte > 0 THEN
         SET resultat = TRUE;
     ELSE
@@ -523,7 +537,7 @@ BEGIN
     END IF;
 END;</pre>
                     </div>
-                    
+
                     <div>
                         <h3 class="text-xl font-semibold text-amber-300 mb-4">Argumentation</h3>
                         <p class="text-gray-300 leading-relaxed mb-4">
@@ -573,7 +587,7 @@ END;</pre>
                     <span class="tag appliquer-tag">Méthodologie</span>
                     <span class="tag appliquer-tag">Besoins utilisateurs</span>
                 </div>
-                
+
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
                         <i class="fas fa-tasks text-xl"></i>
@@ -582,11 +596,18 @@ END;</pre>
                         <span class="text-blue-400">Niveau 2</span> : Appliquer une démarche de suivi de projet en fonction des besoins métiers des clients et des utilisateurs
                     </h2>
                 </div>
-                
+
                 <p class="text-xl text-gray-300 mb-6 pl-16">
-                    <strong class="text-blue-300">Composante Essentielle :</strong> Définir et mettre en œuvre une démarche de suivi de projet
+                    <strong class="text-blue-300">AC 4 :</strong> Définir et mettre en œuvre une démarche de suivi de projet
+                    <br />
+                    <strong class="text-blue-300">en s’appuyant sur</strong> <strong>CE5.04</strong> : en adoptant une démarche proactive, créative et critique
                 </p>
-                
+
+                <p class="text-gray-300 mb-6 pl-16">
+                    Durant notre SAE, j’ai structuré le projet à l’aide d’une méthodologie agile avec des sprints, des revues de code et des points quotidiens. Cette organisation proactive et structurée nous a permis de livrer un projet complet et fiable, tout en répondant de façon critique aux retours du client et aux contraintes rencontrées en cours de développement.
+                </p>
+
+
                 <div class="space-y-8 mt-10">
                     <div class="bg-slate-800/50 p-8 rounded-lg glassmorphism">
                         <h3 class="text-xl font-semibold text-blue-300 mb-4 flex items-center gap-3">
@@ -596,7 +617,7 @@ END;</pre>
                         <p class="text-gray-300 leading-relaxed mb-6">
                             Pour notre SAE sur le référendum électronique, j'ai mis en place une méthodologie de gestion de projet agile adaptée à notre équipe de 4 étudiants. J'ai assuré la coordination entre les différents membres de l'équipe, la planification des sprints et le suivi des objectifs, tout en maintenant une communication constante avec notre encadrant qui jouait le rôle de client.
                         </p>
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="bg-slate-900 p-6 rounded-lg">
                                 <h4 class="text-lg font-semibold text-blue-300 mb-3">Organisation de l'équipe</h4>
@@ -642,7 +663,7 @@ END;</pre>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="trace-box appliquer">
                         <h3 class="text-xl font-semibold text-blue-300 mb-4">Traces et preuves</h3>
                         <p class="text-gray-300 mb-4">
@@ -671,7 +692,7 @@ END;</pre>
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div>
                         <h3 class="text-xl font-semibold text-blue-300 mb-4">Argumentation</h3>
                         <p class="text-gray-300 leading-relaxed mb-4">
@@ -739,7 +760,7 @@ END;</pre>
     document.addEventListener("DOMContentLoaded", function() {
         // Initialiser ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
-        
+
         // Animation des cartes
         gsap.utils.toArray('.competence-card').forEach(card => {
             gsap.from(card, {
@@ -754,7 +775,7 @@ END;</pre>
                 ease: "power3.out"
             });
         });
-        
+
         // Animation des titres
         gsap.utils.toArray('.competence-title').forEach(title => {
             gsap.from(title, {
@@ -769,7 +790,7 @@ END;</pre>
                 ease: "power2.out"
             });
         });
-        
+
         // Animation des boîtes de traces
         gsap.utils.toArray('.trace-box').forEach(box => {
             gsap.from(box, {
@@ -784,7 +805,7 @@ END;</pre>
                 ease: "back.out(1.2)"
             });
         });
-        
+
         // Animation des sections glassmorphism
         gsap.utils.toArray('.glassmorphism').forEach(glass => {
             gsap.from(glass, {
