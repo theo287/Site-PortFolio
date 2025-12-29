@@ -1,60 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuit de l'Info 2024 - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #111827; /* Dark Gray */
-            color: #E5E7EB; /* Light Gray */
-        }
         .hero-gradient {
-            background: linear-gradient(145deg, #4F46E5, #7C3AED); /* Indigo Gradient */
-            box-shadow: 10px 10px 20px #0A0E14,
-                        -10px -10px 20px #20324A;
+            background: linear-gradient(135deg, #4F46E5, #7C3AED);
         }
         .nav-blur {
             backdrop-filter: blur(10px);
-            background: rgba(17, 24, 39, 0.7); /* Dark Gray with Transparency */
+            background: rgba(15, 23, 42, 0.8);
         }
-        .timeline-dot::before {
-            content: '';
-            position: absolute;
-            left: -37px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #6366F1; /* Indigo-500 */
-            border: 4px solid #4F46E5; /* Indigo-700 */
-        }
-        .timeline-line::after {
-            content: '';
-            position: absolute;
-            left: -29px;
-            top: 25px;
-            bottom: -15px;
-            width: 4px;
-            background: #4F46E5; /* Indigo-700 */
-        }
-        .feature-card {
+        .card-hover {
             transition: all 0.3s ease;
         }
-        .feature-card:hover {
+        .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2); /* Indigo-500 with Transparency */
-        }
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(7.5px);
-            -webkit-backdrop-filter: blur(7.5px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(129, 140, 248, 0.2);
         }
     </style>
 </head>
@@ -62,40 +26,43 @@
 
 <!-- Navigation -->
 <nav class="fixed w-full z-50 nav-blur">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <div class="flex-shrink-0">
-                <a href="index.html" class="text-xl font-bold text-indigo-400">
-                    <i class="fas fa-code"></i> Théo Maurin
-                </a>
-            </div>
-            <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-4">
-                    <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Retour</a>
-                </div>
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center h-20 px-6">
+            <a href="index.html" class="text-2xl font-bold">
+                <span class="text-indigo-400">{</span> TM <span class="text-indigo-400">}</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-indigo-400 transition-colors">ACCUEIL</a>
+                <a href="profil.html" class="text-gray-300 hover:text-indigo-400 transition-colors">PROFIL</a>
+                <a href="index.html#projets" class="text-gray-300 hover:text-indigo-400 transition-colors">PROJETS</a>
+                <a href="index.html#contact" class="text-gray-300 hover:text-indigo-400 transition-colors">CONTACT</a>
             </div>
         </div>
     </div>
 </nav>
 
 <!-- Hero Section -->
-<section class="hero-gradient pt-32 pb-20">
+<section class="pt-32 pb-16 hero-gradient">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-3 py-1 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">HTML5</span>
+                    <span class="px-3 py-1 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">CSS3</span>
+                    <span class="px-3 py-1 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">JavaScript</span>
+                    <span class="px-3 py-1 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">Tailwind CSS</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Nuit de l'Info 2024</h1>
                 <div class="space-y-4">
-                    <h1 class="text-5xl font-bold">Nuit de l'Info 2024</h1>
-                    <p class="text-xl text-gray-300">Mon deuxième challenge de développement web en équipe. La Nuit de l'Info est bien plus qu'une compétition : c'est une nuit de défis où chaque seconde compte, et où le travail d'équipe fait toute la différence.</p>
+                    <p class="text-xl text-gray-300">
+                        Mon deuxième défi de développement web en équipe. La Nuit de l'Info est bien plus qu'une compétition : c'est une nuit de défis où chaque seconde compte et où le travail d'équipe fait toute la différence.
+                    </p>
+                    <p class="text-xl text-gray-300">
+                        Compétition nationale de 16h39 à 8h04 réunissant étudiants, enseignants et entreprises autour d'un défi de développement web intensif.
+                    </p>
                 </div>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">HTML5</span>
-                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">CSS3</span>
-                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">JavaScript</span>
-                    <span class="px-4 py-2 bg-indigo-800/50 rounded-full text-indigo-300 border border-indigo-700">Tailwind CSS</span>
-                </div>
-                <div>
-                    <a href="https://raflpb.github.io/nuitInfo/site/src/" target="_blank"
-                       class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-all">
+                <div class="mt-6">
+                    <a href="https://raflpb.github.io/nuitInfo/site/src/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-all">
                         Voir le projet
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -104,118 +71,86 @@
                 </div>
             </div>
             <div class="relative">
-                <img src="ressources/img/SiteNuit.png" alt="Nuit de l'Info Interface" class="rounded-lg shadow-2xl" />
-                <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg opacity-20"></div>
+                <img src="ressources/img/SiteNuit.png" alt="Nuit de l'Info Interface" class="rounded-lg shadow-xl" />
             </div>
         </div>
     </div>
 </section>
 
-<!-- L'événement -->
+<!-- Contenu Principal -->
 <section class="py-20">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Colonne Gauche -->
             <div class="space-y-8">
-                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
-                    <h2 class="text-3xl font-bold mb-6">L'événement</h2>
+                <div class="bg-slate-800 rounded-lg p-8 card-hover">
+                    <h2 class="text-2xl font-bold mb-6">L'événement</h2>
                     <div class="space-y-4 text-gray-300">
-                        <p>La Nuit de l'Info est une compétition nationale qui réunit étudiants, enseignants et entreprises pendant une nuit complète. C'est un défi de développement web de 16h39 à 8h04 le lendemain matin.</p>
-                        <p>Pour ma deuxième participation, j'ai pu mettre à profit l'expérience acquise lors de l'édition 2023 sur le thème du changement climatique.</p>
-                        <div class="mt-6">
-                            <h3 class="text-xl font-semibold mb-3">Format unique</h3>
-                            <ul class="space-y-2">
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    16 heures de développement non-stop
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Travail en équipe intensif
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Défis multiples à relever
-                                </li>
-                            </ul>
-                        </div>
+                        <p>
+                            La Nuit de l'Info est une compétition nationale qui réunit étudiants, enseignants et entreprises pendant une nuit complète. C'est un défi de développement web de 16h39 à 8h04 le lendemain matin.
+                        </p>
+                        <p>
+                            Pour ma deuxième participation, j'ai pu mettre à profit l'expérience acquise lors de l'édition 2023 sur le thème du changement climatique.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 mt-6">
+                        <h3 class="text-lg font-bold mb-4">Format unique</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• 16 heures de développement non-stop</li>
+                            <li>• Travail en équipe intensif</li>
+                            <li>• Défis multiples à relever</li>
+                            <li>• Contrainte temps extrême</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
-                    <h2 class="text-3xl font-bold mb-6">Le Sujet</h2>
+                <div class="bg-slate-800 rounded-lg p-8 card-hover">
+                    <h2 class="text-2xl font-bold mb-6">Le Sujet 2024</h2>
                     <div class="space-y-4 text-gray-300">
-                        <p>Cette année, le défi principal portait sur la thématique : "Et si l’océan était un corps humain ?". Notre équipe a dû concevoir une solution web innovante pour illustrer les parallèles entre les systèmes humains et les systèmes océaniques.</p>
-                        <p>Nous avons choisi de nous concentrer sur l'aspect front-end, en créant une interface intuitive et responsive permettant aux utilisateurs de explorer ces connexions et de mieux comprendre l’importance de préserver l’Océan.</p>
+                        <p>
+                            Cette année, le défi principal portait sur la thématique : "Et si l'océan était un corps humain ?". Notre équipe a dû concevoir une solution web innovante pour illustrer les parallèles entre les systèmes humains et océaniques.
+                        </p>
+                        <p>
+                            Nous avons créé une interface intuitive et responsive permettant aux utilisateurs d'explorer ces connexions et de comprendre l'importance de préserver l'Océan.
+                        </p>
                     </div>
                 </div>
-
             </div>
 
+            <!-- Colonne Droite -->
             <div class="space-y-8">
-                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
-                    <h2 class="text-3xl font-bold mb-6">Compétences Développées</h2>
+                <div class="bg-slate-800 rounded-lg p-8 card-hover">
+                    <h2 class="text-2xl font-bold mb-6">Technologies Utilisées</h2>
                     <div class="space-y-6">
-                        <div class="p-4 bg-slate-900 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-3 text-indigo-400">Travail d'Équipe</h3>
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Frontend Web</h3>
                             <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Collaboration sous pression
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Communication efficace
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Gestion du temps
-                                </li>
+                                <li>• HTML5 structure sémantique</li>
+                                <li>• CSS3 et animations modernes</li>
+                                <li>• Tailwind CSS pour le design</li>
+                                <li>• JavaScript pour l'interactivité</li>
                             </ul>
                         </div>
 
-                        <div class="p-4 bg-slate-900 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-3 text-indigo-400">Développement Web</h3>
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Gestion de Projet</h3>
                             <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Maîtrise de Tailwind CSS
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    JavaScript moderne
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Design responsive
-                                </li>
+                                <li>• Organisation agile sous contrainte</li>
+                                <li>• Planification rapide des sprints</li>
+                                <li>• Priorisation des fonctionnalités</li>
+                                <li>• Prise de décision collective</li>
                             </ul>
                         </div>
 
-                        <div class="p-4 bg-slate-900 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-3 text-indigo-400">Gestion de Projet</h3>
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Travail d'Équipe</h3>
                             <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Organisation agile
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Planification rapide
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <span class="text-indigo-400">•</span>
-                                    Prise de décision
-                                </li>
+                                <li>• Communication efficace 24/7</li>
+                                <li>• Répartition intelligente des tâches</li>
+                                <li>• Collaboration sous pression</li>
+                                <li>• Support mutuel et entraide</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800 p-8 rounded-xl glassmorphism">
-                    <h2 class="text-3xl font-bold mb-6">Expérience Acquise</h2>
-                    <div class="space-y-4 text-gray-300">
-                        <p>Cette deuxième participation m'a permis de consolider mes compétences en développement web front-end et en travail d'équipe. L'expérience de l'année précédente a été précieuse pour mieux gérer le temps et organiser le travail.</p>
-                        <p>J'ai particulièrement apprécié le défi technique de créer une interface moderne en utilisant Tailwind CSS et JavaScript, tout en respectant les contraintes de temps.</p>
                     </div>
                 </div>
             </div>
@@ -223,53 +158,103 @@
     </div>
 </section>
 
-<!-- Timeline -->
+<!-- Ma contribution personnelle -->
+<section class="py-20 bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-center">👤 Ma Contribution Personnelle</h2>
+        <div class="bg-slate-800 rounded-lg p-8 border border-indigo-500/30">
+            <p class="text-gray-300 mb-6">
+                Durant les 16 heures de compétition, j'ai occupé un rôle central dans le développement frontend et la coordination :
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">🎨 Développement Frontend</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Création de la structure HTML5 sémantique</li>
+                        <li>• Intégration complète de Tailwind CSS</li>
+                        <li>• Développement des animations CSS3</li>
+                        <li>• Optimisation responsive multi-devices</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">⚡ Interactivité JavaScript</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Programmation des fonctionnalités interactives</li>
+                        <li>• Gestion des événements utilisateur</li>
+                        <li>• Animation dynamique des éléments</li>
+                        <li>• Débogage et optimisation des performances</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">📈 Gestion de Projet</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Organisation des tâches en sprints courts</li>
+                        <li>• Coordination de l'équipe sous pression</li>
+                        <li>• Priorisation des fonctionnalités critiques</li>
+                        <li>• Suivi de l'avancement en temps réel</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">🛠️ Intégration & Tests</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Tests multi-navigateurs (Chrome, Firefox, Safari)</li>
+                        <li>• Vérification de la compatibilité mobile</li>
+                        <li>• Correction des bugs en temps réel</li>
+                        <li>• Déploiement final sur GitHub Pages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compétences développées -->
 <section class="py-20 bg-slate-800">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-16 text-center">Déroulement du Projet</h2>
-        <div class="relative max-w-3xl mx-auto">
-            <div class="ml-12">
-                <div class="mb-16 relative timeline-dot timeline-line">
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">16h39 - Lancement</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
-                        <p class="text-gray-300">Découverte du sujet et brainstorming en équipe. Organisation des tâches et définition de la stratégie.</p>
-                    </div>
-                </div>
-
-                <div class="mb-16 relative timeline-dot timeline-line">
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">20h00 - Développement</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
-                        <p class="text-gray-300">Mise en place de la structure HTML, intégration avec Tailwind CSS et développement des fonctionnalités JavaScript.</p>
-                    </div>
-                </div>
-
-                <div class="mb-16 relative timeline-dot timeline-line">
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">02h00 - Phase Finale</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
-                        <p class="text-gray-300">Finalisation des fonctionnalités, tests et optimisations des performances.</p>
-                    </div>
-                </div>
-
-                <div class="relative timeline-dot">
-                    <h3 class="text-2xl font-bold text-indigo-400 mb-4">08h04 - Rendu</h3>
-                    <div class="bg-slate-900/50 p-6 rounded-lg glassmorphism">
-                        <p class="text-gray-300">Déploiement du projet et documentation finale.</p>
-                    </div>
-                </div>
+        <h2 class="text-3xl font-bold mb-12 text-center">Compétences BUT Développées</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-indigo-400">AC31.01 - Réaliser</h3>
+                <p class="text-gray-300">Développement d'une interface web moderne et responsive avec HTML5, CSS3 et JavaScript en temps contraint.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-indigo-400">AC32.01 - Optimiser</h3>
+                <p class="text-gray-300">Optimisation du code et des performances pour respecter les contraintes de temps et de qualité.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-indigo-400">AC34.01 - Gérer</h3>
+                <p class="text-gray-300">Gestion de projet agile avec répartition des tâches et coordination d'équipe pendant 16 heures non-stop.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-indigo-400">AC35.01 - Conduire</h3>
+                <p class="text-gray-300">Adaptation rapide aux changements et prise de décision sous pression pour respecter les deadlines.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-indigo-400">AC36.01 - Collaborer</h3>
+                <p class="text-gray-300">Collaboration intensive en équipe avec communication constante et support mutuel tout au long de la nuit.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-indigo-400">AC36.04 - Collaborer</h3>
+                <p class="text-gray-300">Documentation et présentation du projet réalisé pour valoriser le travail d'équipe effectué.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Retour -->
-<section class="py-12">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-        <a href="index.html" class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-            Retour à l'accueil
-        </a>
+<section class="py-12 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-all duration-300 group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Retour à l'accueil
+            </a>
+            <a href="index.html#projets" class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-all duration-300">
+                Voir tous les projets
+            </a>
+        </div>
     </div>
 </section>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +48,10 @@
                 <span class="text-blue-gray-400">{</span> TM <span class="text-blue-gray-400">}</span>
             </a>
             <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-300 hover:text-blue-gray-400 transition-colors">RETOUR</a>
+                <a href="index.html" class="text-gray-300 hover:text-blue-gray-400 transition-colors">ACCUEIL</a>
+                <a href="profil.html" class="text-gray-300 hover:text-blue-gray-400 transition-colors">PROFIL</a>
+                <a href="index.html#projets" class="text-gray-300 hover:text-blue-gray-400 transition-colors">PROJETS</a>
+                <a href="index.html#contact" class="text-gray-300 hover:text-blue-gray-400 transition-colors">CONTACT</a>
             </div>
         </div>
     </div>
@@ -168,15 +171,103 @@
     </div>
 </section>
 
+<!-- Ma contribution personnelle -->
+<section class="py-20 bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-center">👤 Ma Contribution Personnelle</h2>
+        <div class="bg-slate-800 rounded-lg p-8 border border-indigo-500/30">
+            <p class="text-gray-300 mb-6">
+                Dans ce projet réalisé en équipe de 4 personnes, j'ai pris en charge plusieurs aspects clés du développement :
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">🔒 Sécurité & Cryptographie</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Implémentation du système de chiffrement ElGamal</li>
+                        <li>• Développement de la génération de clés publiques/privées</li>
+                        <li>• Gestion du chiffrement et déchiffrement des votes</li>
+                        <li>• Mise en place de la vérification d'intégrité</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">📊 Base de Données</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Conception du schéma relationnel MySQL</li>
+                        <li>• Configuration de Hibernate ORM</li>
+                        <li>• Optimisation des requêtes et des transactions</li>
+                        <li>• Gestion de la persistance des données</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">🖥️ Interface Administrateur</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Création de l'interface JavaFX pour l'administration</li>
+                        <li>• Développement du tableau de bord de suivi</li>
+                        <li>• Intégration des statistiques en temps réel</li>
+                        <li>• Gestion des utilisateurs et des rôles</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-indigo-400">🤝 Coordination d'Équipe</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Organisation des réunions de sprint</li>
+                        <li>• Revue de code et tests d'intégration</li>
+                        <li>• Documentation technique complète</li>
+                        <li>• Présentation finale du projet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compétences développées -->
+<section class="py-20 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center">Compétences BUT Développées</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-blue-400">AC31.01 - Réaliser</h3>
+                <p class="text-gray-300">Développement d'une application complexe avec architecture client-serveur et interfaces JavaFX dynamiques.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-blue-400">AC32.01 - Optimiser</h3>
+                <p class="text-gray-300">Conception et optimisation d'une base de données relationnelle avec MySQL et ORM Hibernate.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-blue-400">AC33.03 - Administrer</h3>
+                <p class="text-gray-300">Mise en place de la sécurisation des données avec chiffrement ElGamal et gestion des communications par sockets.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-blue-400">AC34.01 - Gérer</h3>
+                <p class="text-gray-300">Gestion de projet en équipe avec répartition des tâches et respect des délais imposés.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-blue-400">AC35.01 - Conduire</h3>
+                <p class="text-gray-300">Suivi et adaptation du projet selon les retours et contraintes de sécurité identifiés.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-blue-400">AC36.01 - Collaborer</h3>
+                <p class="text-gray-300">Travail collaboratif en équipe avec communication efficace et documentation partagée.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Retour -->
 <section class="py-12 bg-slate-800">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-        <a href="index.html" class="inline-flex items-center gap-2 text-blue-gray-400 hover:text-blue-gray-300 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-            Retour à l'accueil
-        </a>
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-all duration-300 group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Retour à l'accueil
+            </a>
+            <a href="index.html#projets" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300">
+                Voir tous les projets
+            </a>
+        </div>
     </div>
 </section>
 

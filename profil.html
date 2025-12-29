@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +58,23 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+        
+        /* Animations au scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
@@ -83,51 +100,34 @@
 <section class="pt-32 pb-16 relative">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
+            <div class="fade-in">
                 <h1 class="text-5xl font-bold mb-8">
                     <span class="gradient-text">À propos</span>
                 </h1>
                 <div class="space-y-6 text-gray-300">
                     <p>
-                        Je m'appelle Théo Maurin, étudiant en deuxième année de BUT Informatique à l'IUT de Montpellier, parcours <strong>DACS</strong> (Déploiement d'Applications Communicantes et Sécurisées).
+                        Je m'appelle Théo Maurin, étudiant en troisième année de BUT Informatique à l'IUT de Montpellier, parcours <strong>DACS</strong> (Déploiement d'Applications Communicantes et Sécurisées).
                     </p>
                     <p>
                         Ce que j'aime dans l'informatique, ce n'est pas seulement écrire du code, mais construire des systèmes fiables, sécurisés, et utiles. J'ai découvert cette passion en travaillant sur des projets concrets comme un système de vote électronique sécurisé.
                     </p>
                     <p>
-                        Je suis particulièrement attiré par la sécurité des systèmes, car elle mêle rigueur, logique et anticipation. Comprendre comment les données peuvent être protégées me pousse à aller plus loin.
+                        Je suis quelqu'un de <strong>rigoureux</strong>, <strong>curieux</strong> et <strong>persévérant</strong>. J'aime travailler en équipe, confronter mes idées, documenter proprement, et améliorer ce qui peut l'être. Mon esprit analytique et ma capacité à résoudre des problèmes complexes me permettent de relever des défis techniques avec méthode et créativité.
                     </p>
                     <p>
-                        Je suis quelqu'un de rigoureux, curieux, et persévérant. J'aime travailler en équipe, confronter mes idées, documenter proprement, et améliorer ce qui peut l'être.
+                        Je suis particulièrement attiré par la sécurité des systèmes et l'administration des réseaux, car ces domaines mêlent rigueur, logique et anticipation. Comprendre comment protéger et optimiser les infrastructures informatiques me pousse à aller plus loin dans mes apprentissages.
                     </p>
-                </div>
-
-                <div class="mt-12">
-                    <h2 class="text-2xl font-bold mb-6">Parcours Académique</h2>
-                    <div class="bg-slate-800 p-6 rounded-lg card-hover">
-                        <h3 class="text-lg font-semibold text-indigo-400">BUT Informatique</h3>
-                        <p class="text-gray-300">IUT de Montpellier • 2022 - Présent</p>
-                        <ul class="mt-4 space-y-2 text-gray-300">
-                            <li class="flex items-start gap-2">
-                                <span class="text-indigo-400">•</span>
-                                Spécialisation en développement logiciel et cybersécurité
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-indigo-400">•</span>
-                                Projets pratiques en équipe
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-indigo-400">•</span>
-                                Conception d'applications sécurisées et distribuées
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
 
             <div class="space-y-8">
-                <div class="bg-slate-800 p-8 rounded-lg card-hover">
-                    <h2 class="text-2xl font-bold mb-6">Compétences Techniques</h2>
+                <div class="bg-slate-800 p-8 rounded-lg card-hover border border-slate-700 fade-in stagger-1">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                        Compétences Techniques
+                    </h2>
                     <div class="space-y-6">
                         <div>
                             <h3 class="text-lg font-semibold text-indigo-400 mb-4">Langages de Programmation</h3>
@@ -190,14 +190,69 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                <div class="bg-slate-800 p-8 rounded-lg card-hover">
-                    <h2 class="text-2xl font-bold mb-6">Objectifs Professionnels</h2>
+<!-- Section Parcours et Projet -->
+<section class="py-16 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-8">
+                    <span class="gradient-text">Parcours Académique</span>
+                </h2>
+                <div class="space-y-4">
+                    <div class="bg-slate-900 p-6 rounded-lg card-hover">
+                        <h3 class="text-lg font-semibold text-indigo-400">BUT Informatique - Parcours DACS</h3>
+                        <p class="text-gray-300">IUT de Montpellier • 2022 - 2025</p>
+                        <ul class="mt-4 space-y-2 text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Spécialisation en Déploiement d'Applications Communicantes et Sécurisées
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Projets pratiques en équipe : vote électronique, applications web, systèmes distribués
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Conception d'applications sécurisées et administration de systèmes
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-lg card-hover">
+                        <h3 class="text-lg font-semibold text-indigo-400">Baccalauréat Général</h3>
+                        <p class="text-gray-300">Spécialités Mathématiques et NSI • 2022</p>
+                        <ul class="mt-4 space-y-2 text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Formation aux bases de l'algorithmique et de la programmation
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-indigo-400">•</span>
+                                Fondamentaux en architecture des systèmes et réseaux
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold mb-8">
+                    <span class="gradient-text">Projet Post-BUT</span>
+                </h2>
+                <div class="bg-slate-900 p-8 rounded-lg card-hover">
                     <p class="text-gray-300 mb-4">
-                        Je souhaite continuer vers un <strong>Master en cybersécurité</strong> ou une école d'ingénieurs spécialisée, avec un vrai intérêt pour les enjeux de protection des données.
+                        Après l'obtention de mon BUT Informatique, je souhaite poursuivre mes études à <strong>IMT Alès</strong> (École des Mines d'Alès) en formation d'<strong>Ingénieur Systèmes et Réseaux</strong>.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        Cette formation me permettra d'approfondir mes compétences en administration système, architecture réseau et cybersécurité, domaines qui me passionnent particulièrement et dans lesquels je souhaite me spécialiser.
                     </p>
                     <p class="text-gray-300">
-                        Je suis également ouvert à des opportunités professionnelles, notamment des stages dans des domaines comme la cybersécurité et le développement d'applications critiques.
+                        Mon objectif est de devenir un expert capable de concevoir, déployer et sécuriser des infrastructures informatiques complexes, tout en répondant aux enjeux actuels de la transformation numérique et de la protection des données.
                     </p>
                 </div>
             </div>
@@ -240,7 +295,7 @@
 <footer class="py-12 bg-slate-800">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         <div class="text-gray-400 mb-4 md:mb-0">
-            © 2024 - Théo Maurin
+            © 2025 - Théo Maurin
         </div>
         <div class="flex space-x-6">
             <a href="https://www.linkedin.com/in/théo-maurin" class="text-gray-400 hover:text-indigo-400 transition-all duration-300">

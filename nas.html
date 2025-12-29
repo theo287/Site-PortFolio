@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CernCloud NAS - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        }
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(129, 140, 248, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white">
+<!-- Navigation -->
+<nav class="fixed w-full z-50 nav-blur">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center h-20 px-6">
+            <a href="index.html" class="text-2xl font-bold">
+                <span class="text-indigo-400">{</span> TM <span class="text-indigo-400">}</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-indigo-400 transition-colors">ACCUEIL</a>
+                <a href="profil.html" class="text-gray-300 hover:text-indigo-400 transition-colors">PROFIL</a>
+                <a href="index.html#projets" class="text-gray-300 hover:text-indigo-400 transition-colors">PROJETS</a>
+                <a href="index.html#contact" class="text-gray-300 hover:text-indigo-400 transition-colors">CONTACT</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-16 hero-gradient">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="px-3 py-1 bg-violet-500/20 text-violet-300 rounded-full text-sm">Python</span>
+                    <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">Flask</span>
+                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">LDAP</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">CernCloud NAS</h1>
+                <div class="space-y-4">
+                    <p class="text-xl text-gray-300">
+                        Système de stockage en réseau (NAS) personnel développé avec Python et Flask, offrant une solution complète de cloud storage avec authentification sécurisée et gestion avancée des utilisateurs.
+                    </p>
+                    <p class="text-xl text-gray-300">
+                        Ce projet m'a permis d'approfondir mes compétences en développement backend Python, en intégration LDAP pour l'authentification d'entreprise, et en création d'interfaces d'administration modernes. La sécurité et la gestion des accès étaient au cœur de ce développement.
+                    </p>
+                    <p class="text-xl text-gray-300">
+                        Projet réalisé en équipe de 3 personnes sur une durée de 3 mois.
+                    </p>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="ressources/img/NAS présentation.webp" alt="CernCloud NAS Dashboard" class="rounded-lg shadow-xl" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contenu Principal -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Architecture -->
+            <div class="space-y-8">
+                <div class="bg-slate-800 rounded-lg p-8 card-hover">
+                    <h2 class="text-2xl font-bold mb-6">Fonctionnalités Principales</h2>
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Authentification LDAP</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Intégration complète avec protocole LDAP</li>
+                                <li>• Gestion centralisée des utilisateurs</li>
+                                <li>• Authentification sécurisée multi-niveaux</li>
+                                <li>• Système de tokens de session</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Dashboard Administrateur</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Interface de gestion complète</li>
+                                <li>• Monitoring en temps réel du stockage</li>
+                                <li>• Gestion des appareils connectés</li>
+                                <li>• Statistiques d'utilisation détaillées</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Stockage & Sécurité</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Système de fichiers sécurisé</li>
+                                <li>• Upload et download optimisés</li>
+                                <li>• Gestion des quotas utilisateurs</li>
+                                <li>• Chiffrement des données sensibles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technologies et Apprentissages -->
+            <div class="space-y-8">
+                <!-- Image secondaire -->
+                <div class="bg-slate-800 rounded-lg overflow-hidden card-hover">
+                    <img src="ressources/img/NAS 2.webp" alt="Interface de gestion CernCloud NAS" class="w-full rounded-lg" />
+                </div>
+
+                <div class="bg-slate-800 rounded-lg p-8 card-hover">
+                    <h2 class="text-2xl font-bold mb-6">Technologies Utilisées</h2>
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Backend Python</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Framework Flask pour l'API REST</li>
+                                <li>• Python-LDAP pour l'authentification</li>
+                                <li>• SQLAlchemy pour la base de données</li>
+                                <li>• Flask-Login pour la gestion de sessions</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Frontend Moderne</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Interface responsive avec Tailwind CSS</li>
+                                <li>• JavaScript pour les interactions dynamiques</li>
+                                <li>• Charts.js pour les graphiques de statistiques</li>
+                                <li>• Design moderne et intuitif</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                            <h3 class="text-lg font-bold mb-4">Infrastructure</h3>
+                            <ul class="space-y-2 text-gray-300">
+                                <li>• Serveur LDAP pour l'authentification</li>
+                                <li>• Base de données PostgreSQL</li>
+                                <li>• Système de fichiers organisé</li>
+                                <li>• Logs et monitoring centralisés</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ma contribution personnelle -->
+<section class="py-20 bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8 text-center">👤 Ma Contribution Personnelle</h2>
+        <div class="bg-slate-800 rounded-lg p-8 border border-violet-500/30">
+            <p class="text-gray-300 mb-6">
+                Au sein de l'équipe de 3 personnes, j'ai eu la responsabilité principale du développement backend et de l'intégration sécurisée :
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-violet-400">⚙️ Architecture Backend</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Conception de l'architecture Flask MVC</li>
+                        <li>• Développement de l'API REST complète</li>
+                        <li>• Mise en place du système de routing</li>
+                        <li>• Gestion des sessions et middlewares</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-violet-400">🔐 Intégration LDAP</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Configuration du serveur LDAP</li>
+                        <li>• Implémentation de l'authentification</li>
+                        <li>• Gestion des groupes et permissions</li>
+                        <li>• Synchronisation des utilisateurs</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-violet-400">💾 Gestion des Données</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Conception du modèle de données SQLAlchemy</li>
+                        <li>• Système de gestion des fichiers</li>
+                        <li>• Optimisation des requêtes et cache</li>
+                        <li>• Mise en place des quotas utilisateurs</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 text-violet-400">🛡️ Sécurité</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>• Politique de sécurité des accès</li>
+                        <li>• Chiffrement des données sensibles</li>
+                        <li>• Logs et monitoring de sécurité</li>
+                        <li>• Tests de pénétration et corrections</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compétences développées -->
+<section class="py-20 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center">Compétences BUT Développées</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-violet-400">AC31.01 - Réaliser</h3>
+                <p class="text-gray-300">Développement d'une application web complète avec Flask, incluant API REST et interface utilisateur moderne.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-violet-400">AC32.01 - Optimiser</h3>
+                <p class="text-gray-300">Optimisation des requêtes de base de données et mise en place d'un système de cache pour améliorer les performances.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-violet-400">AC33.03 - Administrer</h3>
+                <p class="text-gray-300">Configuration et sécurisation du serveur LDAP, gestion des accès et mise en place de politiques de sécurité.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-violet-400">AC34.01 - Gérer</h3>
+                <p class="text-gray-300">Gestion complète du projet en autonomie avec planification des fonctionnalités et respect des délais.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-violet-400">AC35.01 - Conduire</h3>
+                <p class="text-gray-300">Suivi itératif du développement avec tests et amélioration continue de l'interface utilisateur.</p>
+            </div>
+            <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 card-hover">
+                <h3 class="text-xl font-bold mb-4 text-violet-400">AC36.01 - Collaborer</h3>
+                <p class="text-gray-300">Documentation technique complète pour faciliter la maintenance et l'évolution du projet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Détails techniques -->
+<section class="py-20 bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Architecture Technique</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-slate-800 p-6 rounded-lg card-hover">
+                <div class="text-3xl mb-4">🔐</div>
+                <h3 class="text-xl font-bold mb-4">Sécurité LDAP</h3>
+                <p class="text-gray-300">
+                    Authentification centralisée via protocole LDAP permettant une gestion sécurisée des identités et des accès utilisateurs.
+                </p>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-lg card-hover">
+                <div class="text-3xl mb-4">📊</div>
+                <h3 class="text-xl font-bold mb-4">Dashboard Admin</h3>
+                <p class="text-gray-300">
+                    Interface d'administration complète avec monitoring temps réel, gestion des utilisateurs et statistiques détaillées.
+                </p>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-lg card-hover">
+                <div class="text-3xl mb-4">⚡</div>
+                <h3 class="text-xl font-bold mb-4">API REST Flask</h3>
+                <p class="text-gray-300">
+                    Backend Python robuste avec Flask offrant une API REST performante pour toutes les opérations du NAS.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Retour -->
+<section class="py-12 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center">
+            <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-all duration-300 group">
+                <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Retour à l'accueil
+            </a>
+            <a href="index.html#projets" class="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-all duration-300">
+                Voir tous les projets
+            </a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
